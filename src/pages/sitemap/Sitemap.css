@@ -1,28 +1,33 @@
-.sitemap-container{
+/* Contenedor principal */
+.sitemap-container {
   background-color: #d3edf7;
   font-family: Georgia, serif;
-
+  padding: 20px;
+  min-height: 100vh;
 }
 
-.header-3d-model{
+/* Cabecera del modelo 3D */
+.header-3d-model {
   width: 100%;
   height: 200px;
 }
 
-.sitemap-info{
+/* Información del Sitemap */
+.sitemap-info {
   padding-top: 40px;
   margin-bottom: 40px;
   text-align: center;
-
 }
 
-.text-summary{
+/* Resumen de texto */
+.text-summary {
   text-align: justify;
-  margin-right: 200px;
-  margin-left: 200px;
-
+  margin: 0 auto; /* Centra el contenido */
+  max-width: 800px; /* Limita el ancho máximo */
+  padding: 0 20px; /* Añade espacio en los bordes */
 }
 
+/* Títulos */
 .title-text {
   color: #1681e6;
   font-size: 3rem;
@@ -39,6 +44,7 @@
   font-family: Georgia, serif;
 }
 
+/* Texto del contenido */
 .content-text {
   color: #34495e;
   font-size: 1.8rem;
@@ -46,11 +52,13 @@
   margin-bottom: 10px;
 }
 
-.selection-temes{
+/* Temas de selección */
+.selection-temes {
   margin-top: 30px;
   margin-bottom: 30px;
 }
 
+/* Pie de página */
 footer {
   margin-top: 20px;
   font-size: 0.9rem;
@@ -58,8 +66,10 @@ footer {
   text-align: center;
 }
 
+/* Listas */
 ul {
   list-style-type: none;
+  padding: 0;
 }
 
 ul li {
@@ -69,16 +79,14 @@ ul li {
 ul li a {
   text-decoration: none;
   color: #2c3e50;
+  transition: color 0.3s;
 }
 
 ul li a:hover {
   text-decoration: underline;
 }
 
-li {
-  margin: 10px 0;
-}
-
+/* Enlaces */
 a {
   color: #3498db;
   text-decoration: none;
@@ -91,4 +99,81 @@ a:hover {
   color: #2980b9;
 }
 
+/* Responsividad */
+@media (max-width: 1024px) {
+  .title-text {
+    font-size: 2.5rem;
+  }
+
+  .subtitle-text {
+    font-size: 2rem;
+  }
+
+  .content-text {
+    font-size: 1.5rem;
+  }
+
+  .text-summary {
+    margin: 0 40px;
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .title-text {
+    font-size: 2rem;
+  }
+
+  .subtitle-text {
+    font-size: 1.8rem;
+  }
+
+  .content-text {
+    font-size: 1.2rem;
+  }
+
+  .text-summary {
+    margin: 0 20px;
+    font-size: 0.9rem;
+  }
+
+  .sitemap-info {
+    padding-top: 20px;
+  }
+
+  ul li a {
+    font-size: 1rem;
+  }
+
+  footer {
+    font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .title-text {
+    font-size: 1.8rem;
+  }
+
+  .subtitle-text {
+    font-size: 1.5rem;
+  }
+
+  .content-text {
+    font-size: 1rem;
+  }
+
+  .text-summary {
+    margin: 0 10px;
+    font-size: 0.8rem;
+  }
+
+  ul li a {
+    font-size: 0.9rem;
+  }
+
+  footer {
+    font-size: 0.7rem;
+  }
+}
 

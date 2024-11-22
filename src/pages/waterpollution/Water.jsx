@@ -10,7 +10,7 @@ import Oceanwaves from "./models-3d/Oceanwaves";
 import Boardmodel from "./models-3d/Boardmodel";
 import Boatmodel from "./models-3d/Boat";
 import Slider2 from "../../components/sliderwater/Slider2";
-import { KeyboardControls } from "@react-three/drei";
+import { KeyboardControls, Loader } from "@react-three/drei";
 import { useMemo } from 'react';
 
 
@@ -42,7 +42,7 @@ const Water = () => {
       <Canvas shadows={true}>
         <Controls />
         <Lights />
-        <Physics gravity={[0, -1, 0]}>
+        <Physics>
           <WelcomeText castShadow receiveShadow/>
           <Staging />
           <Beachtown />
@@ -53,6 +53,7 @@ const Water = () => {
           </KeyboardControls>
         </Physics>
       </Canvas>
+      <Loader/>
     </>
   );
 };

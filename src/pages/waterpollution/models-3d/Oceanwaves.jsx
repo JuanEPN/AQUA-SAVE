@@ -1,12 +1,10 @@
 import React, { useEffect, useRef } from "react";
-import { useGLTF, useAnimations } from "@react-three/drei";
-import { RigidBody } from "@react-three/rapier";
+import { useGLTF, useAnimations, useKeyboardControls } from "@react-three/drei";
+import { RigidBody, TrimeshCollider } from "@react-three/rapier";
 
 const Oceanwaves = (props) => {
   const group = useRef();
-  const { nodes, materials, animations } = useGLTF(
-    "/models-3d/animated_ocean_scene_tutorial_example_1.glb"
-  );
+  const { nodes, materials, animations } = useGLTF("/models-3d/animated_ocean_scene_tutorial_example_1.glb");
   const { actions } = useAnimations(animations, group);
 
   useEffect(() => {
@@ -20,21 +18,21 @@ const Oceanwaves = (props) => {
         }
       };
     } else {
-      console.error("La animación 'Key.001Action.003' no está definida.");
+      console.error("La animación no está definida.");
     }
   }, [actions]);
 
   return (
-    <RigidBody type="fixed" friction={50}>
-      <group ref={group} {...props} dispose={null}>
+    <RigidBody type="fixed" colliders="trimesh">
+      <group ref={group} {...props} dispose={null} position={[0, 0, 0]}>
         <group name="Sketchfab_Scene">
           <group
             name="Sketchfab_model"
-            rotation={[-Math.PI / 2, 0, -1.871]}
+            rotation={[-Math.PI / 2, 0, -1.5]}
             scale={0.159}
           >
             <group name="Root">
-              <group name="Plane021" position={[0, 0, 1.453]}>
+              <group name="Plane021" position={[0, 0, 0]}>
                 <mesh
                   name="Plane021_0"
                   castShadow

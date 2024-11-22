@@ -5,8 +5,8 @@ import { RigidBody } from "@react-three/rapier";
 const Beachtown = (props) => {
   const { nodes, materials } = useGLTF("/models-3d/fishing_town.glb");
   return (
-    <RigidBody type="fixed">
-      <group {...props} dispose={null}>
+    <RigidBody type="fixed" colliders="cuboid">
+      <group {...props} dispose={null} position={[0, 0, 0]}>
         <group>
           <group rotation={[-Math.PI / 2, 0, 0]}>
             <group>

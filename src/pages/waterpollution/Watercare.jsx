@@ -29,7 +29,7 @@ const Watercare = () => {
         </p>
       </section>
 
-      <section className="Scene1">
+      <section className="Scene1watercare">
         <Canvas>
           <OrbitControls />
           <ambientLight intensity={0.5} />
@@ -40,7 +40,7 @@ const Watercare = () => {
 
       <h2 className="Scene-title">Representación</h2>
 
-      <section className="Scene2">
+      <section className="Scene2watercare">
         <Canvas>
           <OrbitControls />
           <ambientLight intensity={0.5} />

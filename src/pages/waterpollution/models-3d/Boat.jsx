@@ -15,9 +15,9 @@ const Boatmodel = (props) => {
     return unsubscribe;
   }, [sub]);
   const speed = {
-    forward: 0.1,
-    back: 0.1,
-    rotation: 0.1,
+    forward: 1,
+    back: 0.5,
+    rotation: 0.5,
   };
 
   useFrame((state, delta) => {
@@ -38,12 +38,13 @@ const Boatmodel = (props) => {
     }
   });
 
-  const handleBoat = useCallback(() =>{
-    BoatRef.current.applyTorqueImpulse({x: 0, y: 10, z:10}, true); 
-  }, [])
+
+  const handleBoat = useCallback(()=> {
+    BoatRef.current.applyTorqueImpulse({x:0, y:20, z:0}, true);
+  },[]);
 
   return (
-    <RigidBody restitution={2}>
+    <RigidBody type="dynamic" colliders="trimesh" mass={75} gravityScale={0.05} restitution={1}>
       <group
         {...props}
         dispose={null}

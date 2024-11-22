@@ -43,6 +43,7 @@ const Seascene = (props) => {
           geometry={nodes.Object_6.geometry}
           material={materials.lambert13SG}
         />
+        <RigidBody type="fixed">
           <mesh
             name="Piso"
             castShadow
@@ -50,6 +51,7 @@ const Seascene = (props) => {
             geometry={nodes.Object_7.geometry}
             material={materials.lambert2SG}
           />
+        </RigidBody>
         <mesh
           name="Brazos"
           castShadow
@@ -106,7 +108,7 @@ const Seascene = (props) => {
           geometry={nodes.Object_15.geometry}
           material={materials.phong1SG}
         />
-        <RigidBody>
+        <RigidBody type="dynamic" colliders="hull">
           <mesh
             name="Plasticos 1"
             castShadow

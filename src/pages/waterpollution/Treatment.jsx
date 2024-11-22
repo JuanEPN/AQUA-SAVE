@@ -4,6 +4,8 @@ import { Canvas } from "@react-three/fiber";
 import Coral from "./models-3d/Coral";
 import { OrbitControls } from "@react-three/drei";
 import { useNavigate } from "react-router-dom";
+import Treatmentplant from "./models-3d/Treatmentplant";
+import Video from "./Video";
 
 const Treatment = () => {
   const navigate = useNavigate(); 
@@ -40,25 +42,16 @@ const Treatment = () => {
         </p>
       </section>
 
-      <section className="Scene1">
+      <section className="Scene1treatment">
         <Canvas>
           <OrbitControls />
           <ambientLight intensity={0.5} />
           <directionalLight position={[5, 5, 5]} />
-          <Coral />
+          <Treatmentplant />
+          <Video name="screen" position-y={9} scale={8} />
         </Canvas>
       </section>
-
       <h2 className="Scene-title">Representación</h2>
-
-      <section className="Scene2">
-        <Canvas>
-          <OrbitControls />
-          <ambientLight intensity={0.5} />
-          <directionalLight position={[5, 5, 5]} />
-          <Coral />
-        </Canvas>
-      </section>
       <section className="treatment-explanation">
         <h2 className="treatment-title-explanation">
           ¿Cómo se trata el agua?
