@@ -8,27 +8,26 @@ import Lights from "../../lights/Lights";
 import WelcomeText from "./WelcomeText";
 import Oceanwaves from "./models-3d/Oceanwaves";
 import Boardmodel from "./models-3d/Boardmodel";
-import { useNavigate } from "react-router-dom";
 import Boatmodel from "./models-3d/Boat";
+import Slider2 from "../../components/sliderwater/Slider2";
 
 const Water = () => {
-
-  const navigate = useNavigate(); 
 
   useEffect(() => {
     alert(
       "Controles para interactuar con los modelos 3D:\n\n" +
       "- Click derecho en los carteles: Ir a la explicación del tema.\n" +
-      "- Click derecho en el bote para volver a la página anterior.\n" +
+      "- Click derecho en el boton para volver a la página anterior.\n" +
       "- Rueda: Hacer zoom.\n" +
-      "- Arrastra el mouse con click derecho para mover la vista del modelo.\n"
+      "- Arrastra el mouse con click izquierdo para mover la vista del modelo.\n"
     );
   }, []); 
 
 
   return (
     <>
-    <Canvas>
+    <Slider2 />
+    <Canvas shadows={true}>
       <Controls />
       <Lights />
       <Physics debug={true}>

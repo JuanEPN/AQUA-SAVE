@@ -1,12 +1,17 @@
 import { useGLTF, Text } from '@react-three/drei';  // Importamos Text
-import { useNavigate } from 'react-router-dom';
+import useSlider from '../../../stores/use-slider';
+import { dataImplication } from '../../../Locals/dataImplication';
+import { dataPollution } from '../../../Locals/dataPollution';
+import { dataTreatment } from '../../../Locals/dataTreatment';
+import { dataWatercare } from '../../../Locals/dataWatercare';
 
 const Boardmodel = (props) => {
   const { nodes, materials } = useGLTF('models-3d/WoodenSigns.glb');
-  const navigate = useNavigate(); 
+  const {setSlider, slider, setData} = useSlider(); 
 
-  const handleCLick = (path) => {
-    navigate(path); 
+  const handleText = (data) => {
+    setData(data);
+    setSlider(true);
   };
 
   const handlePointerOver = () => {
@@ -24,7 +29,7 @@ const Boardmodel = (props) => {
         position={[-5.1, 1.5, 4.7]} rotation={[0, 4.7, 0]} scale={[0.5, 0.5, 0.5]} 
         onPointerOver={handlePointerOver}
         onPointerOut={handlePointerOut}
-        onClick={() => handleCLick("/waterpollution/Pollution")}
+        onClick={() => handleText(dataPollution)}
       >
         <mesh
           castShadow
@@ -55,7 +60,7 @@ const Boardmodel = (props) => {
           position={[0.1, 1.6, 0]} 
           rotation={[0, 1.6, 0]}
           fontSize={0.2}           
-          color="black"           
+          color="purple"           
         >
           Contaminación
         </Text>
@@ -66,7 +71,7 @@ const Boardmodel = (props) => {
         position={[5.3, 1.5, 6.7]} rotation={[0, 4.7, 0]} scale={[0.5, 0.5, 0.5]} 
         onPointerOver={handlePointerOver}
         onPointerOut={handlePointerOut}
-        onClick={() => handleCLick("/waterpollution/Treatment")}
+        onClick={() => handleText(dataTreatment)}
       >
         <mesh
           castShadow
@@ -97,7 +102,7 @@ const Boardmodel = (props) => {
           position={[0.1, 1.6, 0]}
           fontSize={0.2}
           rotation={[0, 1.6, 0]}
-          color="black"
+          color="purple"
         >
           Tratamiento del agua
         </Text>
@@ -108,7 +113,7 @@ const Boardmodel = (props) => {
         position={[3, 1.5, 6.7]} rotation={[0, 4.7, 0]} scale={[0.5, 0.5, 0.5]} 
         onPointerOver={handlePointerOver}
         onPointerOut={handlePointerOut}
-        onClick={() => handleCLick("/waterpollution/Watercare")}
+        onClick={() => handleText(dataWatercare)}
       >
         <mesh
           castShadow
@@ -138,7 +143,7 @@ const Boardmodel = (props) => {
         <Text
           position={[0.1, 1.6, 0]}
           fontSize={0.2}
-          color="black"
+          color="purple"
           rotation={[0, 1.6, 0]}
         >
           Cuidados del agua
@@ -150,7 +155,7 @@ const Boardmodel = (props) => {
         position={[-5.8, 0.7, 6.9]} rotation={[0, 4.7, 0]} scale={[0.5, 0.5, 0.5]} 
         onPointerOver={handlePointerOver}
         onPointerOut={handlePointerOut}
-        onClick={() => handleCLick("/waterpollution/Implication")}
+        onClick={() => handleText(dataImplication)}
       >
         <mesh
           castShadow
@@ -181,7 +186,7 @@ const Boardmodel = (props) => {
           position={[0.1, 1.6, 0]}
           rotation={[0, 1.6, 0]}
           fontSize={0.2}
-          color="black"
+          color="purple"
         >
           Implicaciones empresas y personas
         </Text>

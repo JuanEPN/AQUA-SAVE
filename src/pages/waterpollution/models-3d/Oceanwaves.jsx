@@ -12,7 +12,7 @@ const Oceanwaves = (props) => {
       actions["Key.001Action.003"].play();
       return () => actions["Key.001Action.003"].stop();
     } else {
-      console.error("La animación 'waveAnimation' no está definida.");
+      console.error("La animación no está definida.");
     }
   }, [actions]);
   

@@ -1,10 +1,8 @@
 import React, { useRef } from 'react'
 import { useGLTF } from '@react-three/drei'
-import { useNavigate } from 'react-router-dom';
 
 const Boatmodel = (props) => {
   const { nodes, materials } = useGLTF('/models-3d/boatwood.glb'); 
-  const navigate = useNavigate(); 
 
   const handleCLick = (path) =>{
     navigate(path); 

@@ -8,7 +8,7 @@ const Controls = () => {
   const { camera } = useThree(); 
 
   useEffect(()=>{
-    camera.position.set(1,5,20)
+    camera.position.set(0, 1,30)
     camera.lookAt(10, 10, 10)
   }, [camera]); 
 
@@ -18,7 +18,7 @@ const Controls = () => {
       maxAzimuthAngle={Math.PI / 5}  
 
      
-      minPolarAngle={0}        
+      minPolarAngle={1}        
       maxPolarAngle={Math.PI / 2.5} 
 
       enableZoom={true} 

@@ -1,11 +1,34 @@
-import { Text3D, Text } from "@react-three/drei";
+import { Text3D, Text, Html } from "@react-three/drei";
+import { useNavigate } from "react-router-dom";
 
 const WelcomeText = () => {
+  const navigate = useNavigate();
+
+  const handleCLick = () => {
+    navigate("/Sitemap");
+  };
+
   return (
     <>
+      <Html
+        center
+        occlude
+        distanceFactor={6}
+        transform
+        position={[-1, 7.6, -5]}
+        style={{
+          color: "black",
+          fontSize: "5pt",
+          textAlign: "center",
+        }}
+      >
+        <h1> La contaminación del agua es el principal problema actualmente, <br />
+          debido a que es uno de nuestros soportes vitales,<br /> a continuación te presentare sus causas y cuidados
+          </h1>
+      </Html>
       <Text3D
-        position={[-8, 7, 0]}
-        font={"/fonts/DRAGON HUNTER_Regular.json"}
+        position={[-8, 9, -5]}
+        font={"/fonts/Blue Ocean_Regular.json"}
         bevelEnabled
         bevelSize={0.02}
         bevelThickness={0.1}
@@ -18,14 +41,11 @@ const WelcomeText = () => {
         <meshStandardMaterial color="#1681e6" />
       </Text3D>
 
-      <Text
-        position={[0, 1.5, 9]}
-        rotation={[0, 6, 0]}
-        fontSize={0.2}
-        color="black"
-      >
-        Volver a la página anterior
-      </Text>
+      <Html transform position={[-13, 7, 0]}>
+        <button className="ButtonA" onClick={handleCLick}>
+          Volver al menú
+        </button>
+      </Html>
     </>
   );
 };
