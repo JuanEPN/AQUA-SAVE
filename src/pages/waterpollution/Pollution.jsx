@@ -24,7 +24,6 @@ const Pollution = () => {
         Volver a la página anterior
       </button>
       <button className="buttonBackSite" onClick={handleCLickA}>
-        {" "}
         Volver a la página principal
       </button>
 
