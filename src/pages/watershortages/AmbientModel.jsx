@@ -42,7 +42,7 @@ const AmbientModel = (props) => {
                     name="Plane"
                     geometry={nodes.Plane.geometry}
                     material={materials['Material.004']}
-                    scale={8.778}
+                    scale={25}
                     castShadow
                     receiveShadow
                 />
