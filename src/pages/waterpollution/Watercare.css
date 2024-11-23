@@ -49,13 +49,15 @@
     background-color: rgba(211, 237, 247, 0.8); 
 }
 
-.Scene1watercare{
-    margin: 10px;
+.Scene1watercare {
+    margin: 10px 0;
     height: 400px;
+    width: 700px;
 }
-.Scene2ewatercare {
+.Scene2watercare {
     margin: 20px 0;
-    height: 600px;
+    height: 400px;
+    width: 700px;
 }
 
 .Scene-title {

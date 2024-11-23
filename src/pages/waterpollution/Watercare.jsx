@@ -1,9 +1,10 @@
 import React from "react";
 import "./Watercare.css";
 import { Canvas } from "@react-three/fiber";
-import Coral from "./models-3d/Coral";
 import { OrbitControls } from "@react-three/drei";
 import { useNavigate } from "react-router-dom";
+import Dolphinmodel from "./models-3d/Dolphinmodel";
+import Rivermodel from "./models-3d/Rivermodel";
 
 const Watercare = () => {
   const navigate = useNavigate();
@@ -32,9 +33,9 @@ const Watercare = () => {
       <section className="Scene1watercare">
         <Canvas>
           <OrbitControls />
-          <ambientLight intensity={0.5} />
+          <ambientLight intensity={3} />
           <directionalLight position={[5, 5, 5]} />
-          <Coral />
+          <Rivermodel />
         </Canvas>
       </section>
 
@@ -45,7 +46,7 @@ const Watercare = () => {
           <OrbitControls />
           <ambientLight intensity={0.5} />
           <directionalLight position={[5, 5, 5]} />
-          <Coral />
+          <Dolphinmodel />
         </Canvas>
       </section>
       <section className="watercare-explanation">
