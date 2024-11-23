@@ -1,18 +1,12 @@
 import { useGLTF, useKeyboardControls } from "@react-three/drei";
 import { useFrame } from "@react-three/fiber";
 import { RigidBody } from "@react-three/rapier";
-import { useCallback, useEffect, useRef } from "react";
+import { useEffect, useRef } from "react";
 
 const Turtle = (props) => {
   const { nodes, materials } = useGLTF("models-3d/acidification/turtle.glb");
   const [sub, get] = useKeyboardControls();
   const turtleRef = useRef(null);
-  const rbTurtleRef = useRef();
-
-
-  const handleTurtle = useCallback(() => {
-    rbTurtleRef.current.applyImpulse({ x: 2, y: 2, z: 2}, true);
-  }, []);
 
   useEffect(() => {
     return sub(
@@ -39,10 +33,10 @@ const Turtle = (props) => {
   
     if (forward) {
       //turtleRef.current.position.x = Math.cos(state.clock.elapsedTime * 2);
-      turtleRef.current.position.y += 1 * delta;
+      turtleRef.current.position.z += -1 * delta;
     }
     else if (back) {
-      turtleRef.current.position.y += -1 * delta;
+      turtleRef.current.position.z += 1 * delta;
     }
     else if (left) {
       turtleRef.current.position.x += -1 * delta;
@@ -51,10 +45,10 @@ const Turtle = (props) => {
       turtleRef.current.position.x += 1 * delta;
     }
     else if (above) {
-      turtleRef.current.position.z += -1 * delta;
+      turtleRef.current.position.y += 1 * delta;
     }
     else if (below) {
-      turtleRef.current.position.z += 1 * delta;
+      turtleRef.current.position.y += -1 * delta;
     }
  
    
@@ -64,16 +58,14 @@ const Turtle = (props) => {
   });
 
   return (
-    <RigidBody ref={rbTurtleRef} name="rbturtle" type="fixed" colliders="ball">
-      <group {...props} dispose={null} >
+    <RigidBody name="rbturtle" type="fixed" colliders="cuboid">
+      <group {...props} dispose={null} position={[-3, 2, 11]}>
         <group name="Scene">
             <mesh
-              onClick={handleTurtle}
               name="Turtle"
               ref={turtleRef}
               geometry={nodes.Turtle.geometry}
               material={materials.Material_0}
-              position={[-7, 3, 11]}
               rotation={[-Math.PI / 1, 6, 3]}
               castShadow
               scale={2}

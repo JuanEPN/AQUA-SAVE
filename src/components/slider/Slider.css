@@ -1,5 +1,4 @@
 .container-slider{
-    z-index: 1000000000000000000000000000000;
     width: 100%;
     height: 100vh;
     position: absolute;
@@ -13,7 +12,6 @@
 }
 
 .close-button {
-     z-index: 100;
      position: absolute;
      top: 20px;
      right: 20px;
@@ -21,6 +19,7 @@
      border: none;
      cursor: pointer;
      color: white;
+     z-index: 100;
      padding: 0;
      margin: 0;
      svg{
@@ -37,30 +36,37 @@
 
 .card-slider {
   width: 1200px;
-  height: 500px;
+  height: 700px;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  gap: 20px;
   align-items: center;
   background: #6bb8e241;
 }
 
 .title {
      font-family: Georgia, serif;
-     color: #000000;
+     color: rgb(255, 255, 255);
      font-size: 50px;
      font-weight: 600;
+     margin-top: 40px;
 }
 
 .content {
      font-family: Georgia, serif;
      font-size: 30px;
-     color: #0a0a0a;
+     color: rgb(246, 244, 244);
      text-align: center;
+     padding: 0rem 2rem;
+     margin-bottom: 30px;
 }
 
 .image {
+     margin-top: 10px;
+     margin-bottom: 100px;
      display: flex;
      flex-wrap: wrap;
+     gap: 10px;
      justify-content: center;
 }

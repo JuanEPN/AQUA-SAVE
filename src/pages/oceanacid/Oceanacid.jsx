@@ -1,4 +1,3 @@
-import "./Oceanacid.css"; 
 import {
   ContactShadows,
   KeyboardControls,
@@ -16,28 +15,23 @@ import Turtle from "./models-3d/Turtle";
 import { Physics } from "@react-three/rapier";
 import Staging from "./Staging/Staging";
 import Star from "./models-3d/Star";
-import Fish from "./models-3d/Fish";
-import ControlsOcean from "../../controls/ControlsOcean";
-import StarFish from "./models-3d/StarFish";
-import Bottle from "./models-3d/Bottle";
-import Bag from "./models-3d/Bag";
 
 
 const acidification = () => {
   const cameraSettings = {
     position: [0, 15, 30],
-    fov: 48,
+    fov: 60,
   };
 
 
   const map = useMemo(
     () => [
-      { name: "forward", keys: ["ArrowAbove", "KeyW"] },
-      { name: "back", keys: ["ArrowAbove", "KeyS"] },
+      { name: "forward", keys: ["ArrowUp", "KeyW"] },
+      { name: "back", keys: ["ArrowDown", "KeyS"] },
       { name: "left", keys: ["ArrowLeft", "KeyA"] },
       { name: "right", keys: ["ArrowRight", "KeyD"] },
       { name: "above", keys: ["ArrowUp", "KeyQ"] },
-      { name: "below", keys: ["ArrowDown", "KeyE"] },
+      { name: "below", keys: ["ArrowAbove", "KeyE"] },
     ],
 
     []
@@ -48,21 +42,16 @@ const acidification = () => {
       <Slider />
       <Canvas className="ocean" shadows={true} camera={cameraSettings}>
         <LightsOcean />
+        <OrbitControls />
         <Staging/>
         <ContactShadows />
-        <OrbitControls/>
-        <ControlsOcean/>
         <Suspense>
-          <Physics debug={false} gravity={[0,-1,0]}>
+          <Physics debug={false}>
             <Ocean />
             <Octopus />
             <Star/>
-            <Bottle/>
-            <Bag/>
-            <Fish position={[-15, 3, 5]} scale={0.040} />
-            <StarFish position={[1, 1, 9]} scale={2}/>
           <KeyboardControls map={map}>
-            <Turtle/>
+            <Turtle />
           </KeyboardControls>
           <WelcomeText />
           </Physics>

@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 const TextM = () => {
 
   const handleBottle =() => {
-    alert("Para mover la botella\nArriba: W \nAbajo: S\nDerecha: D\nIzquierda: A\nAdelante: E\nAtrás: flecha abajo"
+    alert("Para mover la botella\nArriba: W \nAbajo: D\nDerecha: -> flecha derecha\nIzquierda: <- flecha izquierda\nAdelante: flecha en dirección hacia abajo\nAtrás: flecha en dirección hacia arriba"
     );
   };
 
@@ -17,16 +17,16 @@ const TextM = () => {
   return (
     <>
         <Text
-        position={[-0.01, 1.1, 0]}
+        position={[-0.01, 0.9, 0]}
         fontSize={0.1}
         color={"purple"}
         font="/fonts/Blue-Ocean.ttf"
       >
         {" "}
-        Conocer sobre los 
+        Conoce sobre los 
       </Text>
       <Text3D
-        position={[-0.8, 0.9, 0]}
+        position={[-0.8, 0.7, 0]}
         anchorX="center"
         anchorY="middle"
         font={"/fonts/Blue Ocean_Regular.json"}
@@ -41,47 +41,34 @@ const TextM = () => {
         {'MICROPLÁSTICOS\n   EN EL AGUA'}
         <meshNormalMaterial/>
       </Text3D>
-
       <Html 
-        occlude
-        center
-        distanceFactor={1}
-        transform
-        position={[-1.2,0.85,0]}>
-          <button className="ButtonA" onClick={handleClick}> 
-            volver al menú
-          </button>
+      occlude
+      center
+      distanceFactor={1}
+      transform
+      position={[-1.2,0.85,0]}>
+        <button className="ButtonA" onClick={handleClick}> 
+          volver al menú
+        </button>
       </Html>
-
+      <Html
+      occlude
+      center
+      distanceFactor={1}
+      transform
+      position={[1.2,0.85,0]}>
+        <button className="BM" onClick={handleBottle}>Tips para mover botella</button>
+      </Html>
       <Html
         occlude
         center
-        distanceFactor={1}
+        distanceFactor={0.7}
         transform
-        position={[1.2,0.85,0]}>
-          <button className="BM" onClick={handleBottle}>Tips para mover botella</button>
-      </Html>
-
-      <Html
-        occlude
-        center
-        distanceFactor={1}
-        transform
-        position={[-0.01,1.2, 0]}
+        position={[-0.01, 0.5, 0]}
       >
-        <p className="tittle-text"> Haga clic en una de las gotas de agua para</p>
+        <p className="tittle-text"> Haga clic en una de las gotas de agua</p>
         
       </Html>
-      <Text
-        position={[-0.01, 0.67, 0]}
-        fontSize={0.1}
-        color={"purple"}
-        font="/fonts/Blue-Ocean.ttf"
-      >
-        {" "}
-        Haga clic en la botella para ver las soluciones
-      </Text>
-
       <Text3D
         position={[-1.2, 0.5, 0]} font={"/fonts/Blue Ocean_Regular.json"}
         bevelThickness={0.1}

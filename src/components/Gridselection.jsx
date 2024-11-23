@@ -1,6 +1,7 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import "./Gridselection.css";
+import { Image } from "@react-three/drei";
 
 
 const themes = [
@@ -42,7 +43,7 @@ const Gridselection = () => {
           onClick={() => handleClick(theme.link)}
         >
           <div className="imageContainer">
-            <img src={theme.image} alt={theme.title}/>
+            <img src={theme.image} alt={theme.title} className="image"/>
           </div>
           <h3>{theme.title}</h3>
         </div>

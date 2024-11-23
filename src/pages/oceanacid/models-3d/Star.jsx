@@ -5,11 +5,9 @@ import { dataMeasurement } from "../../../Locals/dataMeasurement";
 import { dataCauses } from "../../../Locals/dataCauses";
 import { dataProblem } from "../../../Locals/dataProblem";
 import { dataSolution } from "../../../Locals/dataSolution";
-import { useRef } from "react";
 
 const Star = (props) => {
   const { nodes, materials } = useGLTF("models-3d/acidification/star.glb");
-  const rbStarRef = useRef(null);
 
   const { setSlider, slider, setData } = useSlider();
 
@@ -20,18 +18,17 @@ const Star = (props) => {
   };
 
   return (
-    <RigidBody ref={rbStarRef} name="rbOcean" type="fixed" colliders="ball">
+    <RigidBody name="rbOcean" type="fixed" colliders="cuboid">
       <group {...props} dispose={null}>
         <group name="Scene">
           <mesh
             name="Star1"
             geometry={nodes.Star.geometry}
-            color="blue"
             material={materials["Material_0.001"]}
             rotation={[-Math.PI / 1, 1.5, 3]}
             castShadow
             scale={1.5}
-            position={[-10, 9.5, 5]}
+            position={[-8.5, 12, 2]}
             onClick={() => handleText(dataCauses)}
           />
 
@@ -42,7 +39,7 @@ const Star = (props) => {
             rotation={[-Math.PI / 1, 1.5, 3]}
             castShadow
             scale={1.5}
-            position={[-3.5, 9.5, 5]}
+            position={[-1.5, 12, 2]}
             onClick={() => handleText(dataMeasurement)}
           />
 
@@ -53,7 +50,7 @@ const Star = (props) => {
             rotation={[-Math.PI / 1, 1.5, 3]}
             castShadow
             scale={1.5}
-            position={[3.5, 9.5, 5]}
+            position={[5.5, 12, 2]}
             onClick={() => handleText(dataProblem)}
           />
 
@@ -64,7 +61,7 @@ const Star = (props) => {
             rotation={[-Math.PI / 1, 1.5, 3]}
             castShadow
             scale={1.5}
-            position={[10, 9.5, 5]}
+            position={[12, 12, 2]}
             onClick={() => handleText(dataSolution)}
           />
         </group>
