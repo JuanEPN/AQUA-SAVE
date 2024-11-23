@@ -24,6 +24,7 @@
     "react-router-dom": "^6.28.0",
     "react-tsparticles": "^2.12.2",
     "three": "^0.168.0",
+    "three-stdlib": "^2.34.0",
     "tsparticles": "^3.5.0",
     "zustand": "^4.5.5"
   },
