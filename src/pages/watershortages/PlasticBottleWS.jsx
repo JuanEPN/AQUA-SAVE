@@ -7,7 +7,7 @@ const PlasticBottleWS = (props) => {
     const {nodes, materials} = useGLTF("models-3d/plastic-bottle.glb");
 
   return (
-    <RigidBody type="fixed">
+    <RigidBody type="dynamic" restitution={2}>
         <group {...props} dispose={null}>
       <group name="Scene">
         <mesh 

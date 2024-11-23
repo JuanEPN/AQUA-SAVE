@@ -9,6 +9,7 @@ import ControlsWS from '../../controls/ControlsWS';
 import LightsWaterShort from '../../lights/LightsWaterShort';
 import PlasticBottleWS from './PlasticBottleWS';
 import { Physics } from '@react-three/rapier';
+import PostProcessing from './PosteProcessingWaterS/postprocessingWS';
 
 
 
@@ -27,10 +28,11 @@ const Watershortages = () => {
       <WaterShortText />
       <Staging />
       <LightsWaterShort />
-      <Physics debug>
+      <Physics>
         <AmbientModel />
         <PlasticBottleWS/>
       </Physics>
+      <PostProcessing/>
       <Video name="screen" position-y={1.8} position-x={1.4} scale={0.9} />
       <Video2 name="screen2" position-y={1.8} position-x={-1.7} scale={0.9} />
     </Canvas>

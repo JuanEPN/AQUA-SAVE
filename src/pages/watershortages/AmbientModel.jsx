@@ -5,7 +5,7 @@ import React from 'react';
 const AmbientModel = (props) => {
     const { nodes, materials } = useGLTF('/models-3d/Ambient.glb');
     return (
-        <RigidBody type="fixed">
+        <RigidBody type="fixed" colliders= "trimesh">
             <group {...props} dispose={null} castShadow receiveShadow>
                 <group name="Scene">
                     <mesh

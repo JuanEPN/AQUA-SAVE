@@ -7,7 +7,7 @@ const WaterShortText = () => {
             <>
             <Text3D
                 position={[-2.3,3,-2]}
-                font={"/fonts/DRAGON HUNTER_Regular.json"}
+                font={"/fonts/Blue Ocean_Regular.json"}
                 bevelEnabled
                 bevelSize={0.02}
                 bevelThickness={0.1}
