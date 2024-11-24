@@ -1,10 +1,32 @@
-import React from 'react'; 
-import { Canvas } from '@react-three/fiber';
-
+import React from "react";
+import "./Implication.css";
+import { Canvas } from "@react-three/fiber";
+import Coral from "./models-3d/Coral";
+import { OrbitControls } from "@react-three/drei";
+import { useNavigate } from "react-router-dom";
+import Pollutionscene from "./models-3d/Pollutionscene";
+import Tapmodel from "./models-3d/Tapmodel";
+import Lights from "../../lights/Lights";
 
 const Implication = () => {
+  const navigate = useNavigate();
+
+  const handleCLickA = () => {
+    navigate("/Sitemap");
+  };
+
+  const handleClickB = () => {
+    navigate("/waterpollution");
+  };
+
   return (
     <main className="implication-container">
+      <button className="buttonBackWater" onClick={handleClickB}>
+        Volver a la página anterior
+      </button>
+      <button className="buttonBackSite" onClick={handleCLickA}>
+        Volver a la página principal
+      </button>
 
       <h1 className="implication-title">Implicación de personas y empresas</h1>
       <section className="implication-introduction">
@@ -29,8 +51,10 @@ const Implication = () => {
 
       <section className="Scene1implication">
         <Canvas>
+          <OrbitControls />
           <ambientLight intensity={0.5} />
           <directionalLight position={[5, 5, 5]} />
+          <Pollutionscene />
         </Canvas>
       </section>
 
@@ -38,7 +62,10 @@ const Implication = () => {
 
       <section className="Scene2implication">
         <Canvas>
+          <OrbitControls />
+          <Lights/>
           <directionalLight position={[5, 5, 5]} />
+          <Tapmodel />
         </Canvas>
       </section>
       <section className="implication-explanation">
@@ -62,7 +89,6 @@ const Implication = () => {
       </section>
     </main>
   );
-}
-
+};
 
 export default Implication;
