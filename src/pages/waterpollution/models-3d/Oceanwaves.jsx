@@ -1,6 +1,6 @@
-import React, { useEffect, useRef } from 'react';
-import { useGLTF, useAnimations } from '@react-three/drei';
-
+import React, { useEffect, useRef } from "react";
+import { useGLTF, useAnimations, useKeyboardControls } from "@react-three/drei";
+import { RigidBody, TrimeshCollider } from "@react-three/rapier";
 
 const Oceanwaves = (props) => {
   const group = useRef();
