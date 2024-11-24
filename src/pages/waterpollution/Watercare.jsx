@@ -2,11 +2,25 @@ import React from "react";
 import "./Watercare.css";
 import { Canvas } from "@react-three/fiber";
 import { OrbitControls } from "@react-three/drei";
+import { useNavigate } from "react-router-dom";
+import Dolphinmodel from "./models-3d/Dolphinmodel";
+import Rivermodel from "./models-3d/Rivermodel";
 
 const Watercare = () => {
+  const navigate = useNavigate();
+
+  const handleCLickA = () => {
+    navigate("/Sitemap");
+  };
+
+  const handleClickB = () => {
+    navigate("/waterpollution");
+  };
 
   return (
     <main className="watercare-container">
+      <button className="buttonBackWater" onClick={handleClickB}>Volver a la página anterior</button>
+      <button className="buttonBackSite" onClick={handleCLickA}> Volver a la página principal</button>
 
       <h1 className="watercare-title">Cuidado del agua</h1>
       <section className="watercare-introduction">
@@ -19,8 +33,9 @@ const Watercare = () => {
       <section className="Scene1watercare">
         <Canvas>
           <OrbitControls />
-          <ambientLight intensity={0.5} />
+          <ambientLight intensity={3} />
           <directionalLight position={[5, 5, 5]} />
+          <Rivermodel />
         </Canvas>
       </section>
 
@@ -31,6 +46,7 @@ const Watercare = () => {
           <OrbitControls />
           <ambientLight intensity={0.5} />
           <directionalLight position={[5, 5, 5]} />
+          <Dolphinmodel />
         </Canvas>
       </section>
       <section className="watercare-explanation">
@@ -43,6 +59,6 @@ const Watercare = () => {
       </section>
     </main >
   );
-}
+};
 
 export default Watercare;

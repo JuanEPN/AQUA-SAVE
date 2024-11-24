@@ -7,12 +7,15 @@ const Card = ({ item }) => {
   const navigate = useNavigate(); 
 
   return (
-    <div className="card-slider">
-      <h1 className="title">{item.title}</h1>
-      <p className="content">{item.content}</p>
+    <div className="card-slider2">
+      <h1 className="title2">{item.title}</h1>
+      <p className="content2">{item.content}
+      </p>
+
+
       <button
-        className="redirect-button"
-        onClick={() => navigate(item.redirectTo)}  // Redirigir según el ítem
+        className="redirect-button2"
+        onClick={() => navigate(item.redirectTo)} 
       >
         Ir a la página
       </button>
@@ -25,15 +28,15 @@ function Slider2() {
 
   return (
     <>
-      <div className={`${slider ? "open" : "close"} container-slider`}>
+      <div className={`${slider ? "open" : "close"} container-slider2`}>
         <div style={{ position: "relative" }}>
-          <button className="close-button" onClick={() => setSlider(false)}>
+          <button className="close-button2" onClick={() => setSlider(false)}>
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="16"
               height="16"
               fill="currentColor"
-              class="bi bi-x-circle-fill"
+              className="bi bi-x-circle-fill"
               viewBox="0 0 16 16"
             >
               <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M5.354 4.646a.5.5 0 1 0-.708.708L7.293 8l-2.647 2.646a.5.5 0 0 0 .708.708L8 8.707l2.646 2.647a.5.5 0 0 0 .708-.708L8.707 8l2.647-2.646a.5.5 0 0 0-.708-.708L8 7.293z" />
@@ -43,7 +46,7 @@ function Slider2() {
           <Carousel fade>
             {data.map((item, index) => (
               <Carousel.Item key={index}>
-                <Card item={item} />  {/* Pasa los datos de cada ítem */}
+                <Card item={item} /> 
               </Carousel.Item>
             ))}
           </Carousel>
