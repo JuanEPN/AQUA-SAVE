@@ -1,16 +1,12 @@
 import React from "react";
 import "./Watercare.css";
 import { Canvas } from "@react-three/fiber";
-import Coral from "./models-3d/Coral";
 import { OrbitControls } from "@react-three/drei";
-import { useNavigate } from "react-router-dom";
 
 const Watercare = () => {
 
   return (
     <main className="watercare-container">
-      <button className="buttonBackWater" onClick={handleClickB}>Volver a la página anterior</button>
-      <button className="buttonBackSite" onClick={handleCLickA}> Volver a la página principal</button>
 
       <h1 className="watercare-title">Cuidado del agua</h1>
       <section className="watercare-introduction">
@@ -25,7 +21,6 @@ const Watercare = () => {
           <OrbitControls />
           <ambientLight intensity={0.5} />
           <directionalLight position={[5, 5, 5]} />
-          <Coral />
         </Canvas>
       </section>
 
@@ -36,7 +31,6 @@ const Watercare = () => {
           <OrbitControls />
           <ambientLight intensity={0.5} />
           <directionalLight position={[5, 5, 5]} />
-          <Coral />
         </Canvas>
       </section>
       <section className="watercare-explanation">

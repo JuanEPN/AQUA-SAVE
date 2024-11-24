@@ -2,21 +2,12 @@ import React from "react";
 import "./Pollution.css";
 import { Canvas } from "@react-three/fiber";
 import { OrbitControls } from "@react-three/drei";
-import { useNavigate } from "react-router-dom";
-import Seascene from "./models-3d/Seascene";
 import { Physics } from "@react-three/rapier";
 import Sewage from "./models-3d/Sewage";
 
 const Pollution = () => {
   return (
     <main className="pollution-container">
-      <button className="buttonBackWater" onClick={handleClickB}>
-        Volver a la página anterior
-      </button>
-      <button className="buttonBackSite" onClick={handleCLickA}>
-        {" "}
-        Volver a la página principal
-      </button>
 
       <h1 className="pollution-title">Maneras de Contaminación del agua</h1>
       <section className="pollution-introduction">
@@ -40,7 +31,6 @@ const Pollution = () => {
             <OrbitControls />
             <ambientLight intensity={0.5} />
             <directionalLight position={[5, 5, 5]} />
-            <Seascene />
           </Physics>
         </Canvas>
       </section>

@@ -1,16 +1,10 @@
 import React from 'react'; 
+import { Canvas } from '@react-three/fiber';
 
 
 const Implication = () => {
   return (
     <main className="implication-container">
-      <button className="buttonBackWater" onClick={handleClickB}>
-        Volver a la página anterior
-      </button>
-      <button className="buttonBackSite" onClick={handleCLickA}>
-        {" "}
-        Volver a la página principal
-      </button>
 
       <h1 className="implication-title">Implicación de personas y empresas</h1>
       <section className="implication-introduction">
@@ -35,10 +29,8 @@ const Implication = () => {
 
       <section className="Scene1implication">
         <Canvas>
-          <OrbitControls />
           <ambientLight intensity={0.5} />
           <directionalLight position={[5, 5, 5]} />
-          <Pollutionscene />
         </Canvas>
       </section>
 
@@ -46,10 +38,7 @@ const Implication = () => {
 
       <section className="Scene2implication">
         <Canvas>
-          <OrbitControls />
-          <Lights/>
           <directionalLight position={[5, 5, 5]} />
-          <Tapmodel />
         </Canvas>
       </section>
       <section className="implication-explanation">
