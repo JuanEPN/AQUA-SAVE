@@ -1,36 +1,80 @@
-import "./Quiz.css";
-import { useCallback } from "react";
-import { useNavigate } from "react-router-dom";
+import React from "react";
 import useQuizStore from "../../stores/use-quiz-store";
-import useAuthStore from "../../stores/use-auth-store";
 
 const Quiz = () => {
-  const { quiz, incrementQuizProgress } = useQuizStore();
-  const { user, logout } = useAuthStore();
-  const navigate  = useNavigate(); 
+  const {
+    quiz,
+    setQuiz,
+    incrementQuizProgress,
+    clearQuiz,
+  } = useQuizStore();
 
-  const handleLogout = useCallback(() => {
-    logout();
-  }, [logout]);
+  // Array de preguntas
+  const questions = [
+    {
+      question: "¿Cuál es el recurso más importante para la vida en la Tierra?",
+      options: ["Agua", "Aire", "Luz solar", "Minerales"],
+      answer: "Agua",
+    },
+    {
+      question: "¿Qué porcentaje del agua en la Tierra es potable?",
+      options: ["97%", "50%", "3%", "10%"],
+      answer: "3%",
+    },
+  ];
 
-  const onHandleButtonNext = useCallback(() => {
-    incrementQuizProgress();
-    navigate("/Anima"); 
-  }, [incrementQuizProgress, navigate]);
+  const [currentQuestion, setCurrentQuestion] = React.useState(0);
+  const [isQuizFinished, setIsQuizFinished] = React.useState(false);
 
-  if (!user) {
-    return <p>Por favor, inicie sesión.</p>; 
-  }
+  // Manejar respuesta seleccionada
+  const handleAnswer = (selectedOption) => {
+    if (selectedOption === questions[currentQuestion].answer) {
+      setQuiz({ correctAnswers: quiz.correctAnswers + 1 });
+    } else {
+      setQuiz({ incorrectAnswers: quiz.incorrectAnswers + 1 });
+    }
+
+    const nextQuestion = currentQuestion + 1;
+    if (nextQuestion < questions.length) {
+      incrementQuizProgress();
+      setCurrentQuestion(nextQuestion);
+    } else {
+      incrementQuizProgress();
+      setIsQuizFinished(true);
+    }
+  };
+
+  // Reiniciar el quiz
+  const restartQuiz = () => {
+    setCurrentQuestion(0);
+    clearQuiz();
+    setIsQuizFinished(false);
+  };
 
   return (
     <div className="quiz-container">
-      <img src="/logo.png" alt="App Logo" className="app-logo" />
-      <div className="user-info">
-        <img src={user.photoURL || "/images/default-avatar.png"} alt={user.displayName || "Usuario"} className="user-photo" />
-        <h1 className="quiz-header">BIENVENIDO! {user.displayName}</h1>
-      </div>
-      <button onClick={onHandleButtonNext}>Siguiente</button>
-      <button onClick={handleLogout}>Cerrar Sesión</button>
+      {isQuizFinished ? (
+        <div className="quiz-results">
+          <h2>¡Quiz terminado!</h2>
+          <p>Respuestas correctas: {quiz.correctAnswers}</p>
+          <p>Respuestas incorrectas: {quiz.incorrectAnswers}</p>
+          <p>Progreso: {quiz.percentageQuizCompleted}%</p>
+          <button onClick={restartQuiz}>Reiniciar</button>
+        </div>
+      ) : (
+        <div className="quiz-question">
+          <h3>Pregunta {currentQuestion + 1}:</h3>
+          <p>{questions[currentQuestion].question}</p>
+          <div className="quiz-options">
+            {questions[currentQuestion].options.map((option, index) => (
+              <button key={index} onClick={() => handleAnswer(option)}>
+                {option}
+              </button>
+            ))}
+          </div>
+          <p>Progreso: {quiz.percentageQuizCompleted}%</p>
+        </div>
+      )}
     </div>
   );
 };
