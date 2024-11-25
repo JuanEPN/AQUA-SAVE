@@ -10,6 +10,7 @@ import LightsWaterShort from '../../lights/LightsWaterShort';
 import PlasticBottleWS from './PlasticBottleWS';
 import { Physics } from '@react-three/rapier';
 import PostProcessing from './PosteProcessingWaterS/postprocessingWS';
+import Turtle from './Turtle';
 
 
 
@@ -30,7 +31,8 @@ const Watershortages = () => {
       <LightsWaterShort />
       <Physics>
         <AmbientModel />
-        <PlasticBottleWS/>
+        <PlasticBottleWS position ={[-3,1,0]}/>
+        <Turtle position ={[-0.1,2,3]}/>
       </Physics>
       <PostProcessing/>
       <Video name="screen" position-y={1.8} position-x={1.4} scale={0.9} />
