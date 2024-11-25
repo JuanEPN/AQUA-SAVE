@@ -28,7 +28,7 @@ const Star = (props) => {
             rotation={[-Math.PI / 1, 1.5, 3]}
             castShadow
             scale={1.5}
-            position={[-8.5, 12, 2]}
+            position={[-10, 9, 4]}
             onClick={() => handleText(dataCauses)}
           />
 
@@ -39,7 +39,7 @@ const Star = (props) => {
             rotation={[-Math.PI / 1, 1.5, 3]}
             castShadow
             scale={1.5}
-            position={[-1.5, 12, 2]}
+            position={[-3, 9, 4]}
             onClick={() => handleText(dataMeasurement)}
           />
 
@@ -50,7 +50,7 @@ const Star = (props) => {
             rotation={[-Math.PI / 1, 1.5, 3]}
             castShadow
             scale={1.5}
-            position={[5.5, 12, 2]}
+            position={[4.5, 9, 4]}
             onClick={() => handleText(dataProblem)}
           />
 
@@ -61,7 +61,7 @@ const Star = (props) => {
             rotation={[-Math.PI / 1, 1.5, 3]}
             castShadow
             scale={1.5}
-            position={[12, 12, 2]}
+            position={[11.5, 9, 4]}
             onClick={() => handleText(dataSolution)}
           />
         </group>
