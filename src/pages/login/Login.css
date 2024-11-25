@@ -5,10 +5,6 @@
   justify-content: center;
   height: 100vh;
   text-align: center;
-  padding: 10px;
-  margin: 5px;
-  position: relative;
-  min-height: 100vh;
   background-color: #d3edf7; 
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); 
 }
@@ -58,7 +54,7 @@
 .button-login{
   padding: 15px 40px;
   font-family: Georgia, serif;
-  background-color: #007BFF;
+  background-color: #8a78cc;
   font-size: 20px;
   color: white;
   cursor: pointer;

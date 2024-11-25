@@ -1,17 +1,15 @@
 .grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 15px;
-  padding: 10px;
-  margin-right: 300px;
+  display: grid; 
+  place-self: center;
+  grid-template-columns: repeat(2, 1fr); /* Dos columnas de igual tamaño */
+  grid-template-rows: auto auto; /* Dos filas automáticamente ajustadas */
+  gap: 20px;
 }
 
 .card {
   position: relative;
-  width: 600px;
-  height: 670px;
-  margin-right: 100%;
-  margin-left: 250px;
+  /* margin: 150px */
+  width: 400px;
   overflow: hidden;
   border-radius: 10px;
   box-shadow: 4px 8px rgba(0, 0, 0, 0.1);
@@ -26,19 +24,23 @@
 }
 
 .imageContainer {
-  width: 500px;
-  height: 500px; 
+  /* width: 500px; */
+  height: 300px; 
   display: flex;
   align-items: center;
   justify-content: center;
   background-color: #a3e4f8; 
   border-radius: 10px; 
   overflow: hidden; 
+  img{
+    width: 100%;
+    object-fit: contain;
+  }
 }
 
 h3 {
   text-align: center;
-  margin-top: 10px;
+  margin-top: 15px;
   font-size: 1.2rem;
   color: #333;
 }
