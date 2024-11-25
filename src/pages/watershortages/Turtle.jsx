@@ -23,7 +23,7 @@ const Turtle = (props) => {
     }, [actions]);
 
     return (
-        <RigidBody restitution={0.1} >
+        <RigidBody  >
             <group ref={turleRef} {...props} dispose={null} scale={0.2} castShadow receiveShadow>
                 <group name="Sketchfab_Scene">
                     <group name="Sketchfab_model" rotation={[-Math.PI / 2, 0, 0]} scale={0.1} castShadow receiveShadow>

@@ -32,7 +32,7 @@ const Watershortages = () => {
       <Physics>
         <AmbientModel />
         <PlasticBottleWS position ={[-3,1,0]}/>
-        <Turtle position ={[-0.1,2,3]}/>
+        <Turtle position ={[-0.1,0.7,3]}/>
       </Physics>
       <PostProcessing/>
       <Video name="screen" position-y={1.8} position-x={1.4} scale={0.9} />
