@@ -22,7 +22,7 @@ const ControlsWS = () => {
       minPolarAngle={0}        
       maxPolarAngle={Math.PI / 2.5} 
 
-      enableZoom={false} 
+      enableZoom={true} 
       minDistance={6.5}  
       maxDistance={0.5}
       

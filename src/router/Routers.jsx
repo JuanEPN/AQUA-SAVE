@@ -12,7 +12,6 @@ import Pollution from "../pages/waterpollution/Pollution.jsx";
 import Implication from "../pages/waterpollution/Implication.jsx";
 import Watercare from "../pages/waterpollution/Watercare.jsx";
 import Treatment from "../pages/waterpollution/Treatment.jsx";
-import Gridselection from "../components/Gridselection.jsx";
 import Quiz from "../pages/quiz/Quiz.jsx";
 
 const Routers = createBrowserRouter([
@@ -28,7 +27,7 @@ const Routers = createBrowserRouter([
     path: "/quiz",
     element: (
       <ProtectedRouter>
-        <Quiz/>
+        <Quiz />
       </ProtectedRouter>
     ),
   },
@@ -112,6 +111,8 @@ const Routers = createBrowserRouter([
       </ProtectedRouter>
     ),
   },
+   
+  
 ]);
 
 export default Routers;

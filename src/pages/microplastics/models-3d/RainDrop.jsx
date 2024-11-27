@@ -3,7 +3,6 @@
 import { useGLTF } from "@react-three/drei";
 import useSlider from "../../../stores/use-slider";
 import { dataMicroplastic } from "../../../Locals/dataMicroplastic";
-import { dataRecomendation } from "../../../Locals/dataRecomendation";
 
 
 
@@ -36,7 +35,7 @@ const RainDrop = (props) =>{
           material={materials.Material_0}
           scale={0.30}
           castShadow
-          onClick={() => handleText(dataRecomendation)}
+          onClick={() => handleText(dataMicroplastic)}
           position={[1, 0.3, 0.2]}>
         </mesh>            
       </group>

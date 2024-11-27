@@ -1,5 +1,3 @@
-
-
 export const dataWatercare = [
     {
       title: "CUIDADOS PARA EL AGUA",
@@ -8,5 +6,6 @@ export const dataWatercare = [
     },
    
   ];
+
 
 
