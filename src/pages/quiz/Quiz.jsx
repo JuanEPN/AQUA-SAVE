@@ -7,6 +7,7 @@ function Quiz(){
     <>
     <Canvas>
     <Staging/>
+    
     </Canvas>
     </>
   )
