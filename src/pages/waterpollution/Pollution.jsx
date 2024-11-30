@@ -5,7 +5,7 @@ import { OrbitControls } from "@react-three/drei";
 import { useNavigate } from "react-router-dom";
 import Seascene from "./models-3d/Seascene";
 import { Physics } from "@react-three/rapier";
-import Sewage from "./models-3d/Sewage";
+import Barrels from "./models-3d/Barrels";
 
 const Pollution = () => {
   const navigate = useNavigate();
@@ -59,10 +59,9 @@ const Pollution = () => {
 
       <section className="Scene2pollution">
         <Canvas>
-          <OrbitControls />
           <ambientLight intensity={0.5} />
           <directionalLight position={[5, 5, 5]} />
-          <Sewage />
+          <Barrels />
         </Canvas>
       </section>
       <section className="pollution-explanation">

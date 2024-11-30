@@ -1,0 +1,33 @@
+<<<<<<< HEAD
+=======
+.quiz-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background-color: #d3edf7;
+  font-family: Georgia, serif; 
+}
+
+.quiz-header {
+  font-size: 2rem;
+  font-family: Georgia, serif;
+}
+
+.quiz-progress {
+  font-size: larger;
+  font-family: Georgia, serif;
+}
+
+.button-quiz{
+  padding: 15px 40px;
+  font-family: Georgia, serif;
+  background-color: #8a78cc;
+  font-size: 20px;
+  color: white;
+  cursor: pointer;
+  margin-top: 30px;
+  margin-bottom: 100px;
+}
+>>>>>>> 282687acd0b6e29279425c262c61d54093d8b9a0

@@ -6,5 +6,3 @@ export const dataCauses = [
     img: "/images/acidification/causes1.png",
   },
 ];
-
-

@@ -2,8 +2,6 @@
 import { useGLTF, useKeyboardControls} from "@react-three/drei";
 import { useEffect, useRef } from "react";
 import { useFrame } from "@react-three/fiber";
-import useSlider from "../../../stores/use-slider";
-import { dataMSolution } from "../../../Locals/dataMSolution"
 
 const PlasticBottle = (props) => {
     const {nodes, materials} = useGLTF("models-3d/plastic-bottle.glb");
@@ -29,7 +27,7 @@ const PlasticBottle = (props) => {
       //PlasticBottleRef.current.position.y += 0.01 * delta
       //PlasticBottleRef.current.position.x = Math.cos(state.clock.elapsedTime * 0.1)
 
-      if (forward) {
+      if (forward && PlasticBottleRef.current.position.z > -10) {
         PlasticBottleRef.current.position.z -=0.1 * delta;
       }
       if (back) {
@@ -52,14 +50,6 @@ const PlasticBottle = (props) => {
       const pressed = get().back
     });
 
-    const { setSlider, slider, setData } = useSlider();
-
-    const handleText = (data) => {
-      setData(data);
-      setSlider(true);
-      console.log("click", slider);
-    };
-
   return (
     <group {...props} dispose={null}>
       <group name="Scene">
@@ -68,11 +58,10 @@ const PlasticBottle = (props) => {
           ref={PlasticBottleRef}
           geometry={nodes.high_poly.geometry}
           material={materials.Material_0}
-          scale={0.3}
+          scale={0.1}
           castShadow
           receiveShadow
-          position={[0, 0.01, 0.4]}    
-          onClick={() => handleText(dataMSolution)}      
+          position={[0, -0.033, 0.2]}          
         /> 
       </group>
     </group>
