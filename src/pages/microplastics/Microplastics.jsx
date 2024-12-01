@@ -9,6 +9,11 @@ import TextM from './TextM.jsx';
 import Staging from '../staging/Staging.jsx';
 import RainDrop from './models-3d/RainDrop.jsx';
 import Slider from '../../components/slider/Slider.jsx';
+import { Physics } from '@react-three/rapier';
+import BeachBall from './models-3d/BeachBall.jsx';
+import HermitCrab from './models-3d/HermitCrab.jsx';
+import PostProcessing from './postprocessing/PostProcessing';
+import MicroVideo from './MicroVideo.jsx';
 
 
 const Microplastics = () => {
@@ -31,11 +36,17 @@ const Microplastics = () => {
         <OrbitControls makeDefault/>
         <LightsAcuaticSystem/>
         <KeyboardControls map={map}>
-        <PlasticBottle /> 
+          <PlasticBottle /> 
         </KeyboardControls>
-        <AquaticSystem />
+        <Physics debug>
+          <BeachBall/>
+          <AquaticSystem />
+        </Physics>
+        <HermitCrab position={[0.35, -0.1, 0.3]} scale={0.07} />
         <TextM/>
         <Staging/>
+        <PostProcessing/>
+        <MicroVideo name="S" position={[2.6,0.5,-2.2]} scale={1}/>
         <RainDrop/>
       </Canvas>
     </>   
