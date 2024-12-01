@@ -1,18 +1,3 @@
-<<<<<<< HEAD
-import { Canvas } from "@react-three/fiber";
-import Staging from "../staging/Staging";
-import "./Quiz.css";
-
-function Quiz(){
-  return(
-    <>
-    <Canvas>
-    <Staging/>
-    </Canvas>
-    </>
-  )
-}
-=======
 import React from "react";
 import useQuizStore from "../../stores/use-quiz-store";
 import "./Quiz.css"; 
@@ -170,6 +155,5 @@ const Quiz = () => {
     </div>
   );
 };
->>>>>>> 282687acd0b6e29279425c262c61d54093d8b9a0
 
 export default Quiz;
