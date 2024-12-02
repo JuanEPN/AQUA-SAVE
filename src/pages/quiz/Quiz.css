@@ -25,9 +25,30 @@
   font-size: 20px;
   color: white;
   cursor: pointer;
-  margin-top: 30px;
-  margin-bottom: 100px;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  height: 60px;
+  width: 50%;
 
 }
 
+.button-reboot {
+  background-color: #8a78cc;
+  font-family: Georgia, serif;
+  font-size: 20px;
+  color: white;
+}
+
+.button-following {
+  background-color: #8a78cc;
+  font-family: Georgia, serif;
+  font-size: 20px;
+  color: white;
+}
+
+.text-explanation {
+  font-family: Georgia, serif;
+  margin-left: 50px;
+  margin-right: 50px;
+}
 
