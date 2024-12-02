@@ -17,8 +17,8 @@ const TextM = () => {
   return (
     <>
         <Text
-        position={[-0.01, 0.9, 0]}
-        fontSize={0.1}
+        position={[-0.01, 2.3 , 0]}
+        fontSize={0.3}
         color={"purple"}
         font="/fonts/Blue-Ocean.ttf"
       >
@@ -26,7 +26,7 @@ const TextM = () => {
         Conoce sobre los 
       </Text>
       <Text3D
-        position={[-0.8, 0.7, 0]}
+        position={[-1.5, 1.8, 0]}
         anchorX="center"
         anchorY="middle"
         font={"/fonts/Blue Ocean_Regular.json"}
@@ -36,7 +36,7 @@ const TextM = () => {
         height={0.1}
         lineHeight={0.8}
         letterSpacing={0.05}
-        size={0.1}
+        size={0.3}
       >
         {'MICROPLÁSTICOS\n   EN EL AGUA'}
         <meshNormalMaterial/>
@@ -44,9 +44,9 @@ const TextM = () => {
       <Html 
       occlude
       center
-      distanceFactor={1}
+      distanceFactor={3}
       transform
-      position={[-1.2,0.85,0]}>
+      position={[-1.2, 2.5 , 0]}>
         <button className="ButtonA" onClick={handleClick}> 
           volver al menú
         </button>
@@ -54,36 +54,36 @@ const TextM = () => {
       <Html
       occlude
       center
-      distanceFactor={1}
+      distanceFactor={3}
       transform
-      position={[1.2,0.85,0]}>
+      position={[1.2,2.5,0]}>
         <button className="BM" onClick={handleBottle}>Tips para mover botella</button>
       </Html>
       <Html
         occlude
         center
-        distanceFactor={0.7}
+        distanceFactor={3}
         transform
-        position={[-0.01, 0.5, 0]}
+        position={[-0.01, 1.2, 0]}
       >
         <p className="tittle-text"> Haga clic en una de las gotas de agua</p>
         
       </Html>
       <Text3D
-        position={[-1.2, 0.5, 0]} font={"/fonts/Blue Ocean_Regular.json"}
+        position={[-3.5, 1.3, 0]} font={"/fonts/Blue Ocean_Regular.json"}
         bevelThickness={0.1}
         height={0.1}
-        size={0.08}
+        size={0.2}
         
         >
         {'¿Qué son los\nmicroplásticos?'}
         <meshStandardMaterial color={"purple"} />
       </Text3D>
       <Text3D
-        position={[0.5, 0.4, 0]} font={"/fonts/Blue Ocean_Regular.json"}
+        position={[2.3, 1.2, 0]} font={"/fonts/Blue Ocean_Regular.json"}
         bevelThickness={0.1}
         height={0.1}
-        size={0.1}
+        size={0.2}
         
         >
         {'Recomendaciones'}
