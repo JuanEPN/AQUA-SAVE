@@ -20,6 +20,9 @@ import Fish from "./models-3d/Fish";
 import ControlsOcean from "../../controls/ControlsOcean";
 import Bottle from "./models-3d/Bottle";
 import Bag from "./models-3d/Bag";
+import Video from "./Video";
+import PostProcessing from "./postProcessing/PostProcessing";
+
 
 
 const acidification = () => {
@@ -64,6 +67,8 @@ const acidification = () => {
           </KeyboardControls>
           <WelcomeText />
           </Physics>
+          <Video name="screen" position-z={-12} position-y={4} position-x={0} scale={5} />
+          <PostProcessing/>
         </Suspense>
       </Canvas>
       <Loader />

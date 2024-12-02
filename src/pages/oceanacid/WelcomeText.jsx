@@ -15,6 +15,10 @@ const WelcomeText = () => {
     navigate('/Sitemap');
   };
 
+  const handleEffect = () => {
+    navigate('/Welcome');
+  };
+
   return (
     <>
       <Center position={[1,6,0]}>
@@ -124,6 +128,18 @@ const WelcomeText = () => {
               volver al menú
             </button>
         </Html>
+
+        {/*<Html 
+          occlude
+          center
+          distanceFactor={13}
+          transform
+          position={[20, 3, 20]}>
+                
+            <button className="ButtonEffect" onClick={handleEffect}> 
+              Aplicar Efecto
+            </button>
+        </Html>*/}
       
     </Center>
     </>
