@@ -20,7 +20,7 @@ const Bag = () => {
           <group name="Scene">
           <mesh 
                name="Bag"
-               position={[11,2,-13]} 
+               position={[11,2,-10]} 
                scale={1.2}
                geometry={nodes.Bag.geometry} 
                material={materials.Material_0} />
