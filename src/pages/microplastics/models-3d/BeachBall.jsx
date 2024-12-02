@@ -35,7 +35,7 @@ const BeachBall = (props) => {
             name="high_poly"
             geometry={nodes.high_poly.geometry}
             material={materials.Material_0}
-            scale={0.2}
+            scale={1}
             castShadow
             receiveShadow
             position={[0.1, 0.3, 0]}

@@ -9,7 +9,7 @@ const SpongeBob = (props) => {
   return(
     <group {...props} ref={bobRef} dispose={null}>
       <group name="Sketchfab_Scene">
-        <group name="Sketchfab_model" rotation={[-Math.PI / 2, 0, 0]}>
+        <group name="Sketchfab_model" rotation={[-Math.PI / 2, 0, 4]}>
           <group name="SpongeBob_No_Wayobjcleanermaterialmergergles">
             <mesh
               name="Object_2"
