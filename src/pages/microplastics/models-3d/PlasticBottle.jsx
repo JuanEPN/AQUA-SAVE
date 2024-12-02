@@ -58,10 +58,10 @@ const PlasticBottle = (props) => {
           ref={PlasticBottleRef}
           geometry={nodes.high_poly.geometry}
           material={materials.Material_0}
-          scale={0.1}
+          scale={1}
           castShadow
           receiveShadow
-          position={[0, -0.033, 0.2]}          
+          position={[0, -0.1, 2]}          
         /> 
       </group>
     </group>
