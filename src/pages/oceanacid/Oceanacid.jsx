@@ -18,9 +18,11 @@ import Staging from "./Staging/Staging";
 import Star from "./models-3d/Star";
 import Fish from "./models-3d/Fish";
 import ControlsOcean from "../../controls/ControlsOcean";
-import StarFish from "./models-3d/StarFish";
 import Bottle from "./models-3d/Bottle";
 import Bag from "./models-3d/Bag";
+import Video from "./Video";
+import PostProcessing from "./postProcessing/PostProcessing";
+
 
 
 const acidification = () => {
@@ -60,12 +62,13 @@ const acidification = () => {
             <Bottle/>
             <Bag/>
             <Fish position={[-15, 3, 5]} scale={0.040} />
-            <StarFish position={[1, 1, 9]} scale={2}/>
           <KeyboardControls map={map}>
             <Turtle/>
           </KeyboardControls>
           <WelcomeText />
           </Physics>
+          <Video name="screen" position-z={-12} position-y={4} position-x={0} scale={5} />
+          <PostProcessing/>
         </Suspense>
       </Canvas>
       <Loader />

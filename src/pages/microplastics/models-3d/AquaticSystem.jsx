@@ -1,7 +1,7 @@
-
+/*eslint-disable react/no-unknown-property */
 import { useGLTF, useTexture } from "@react-three/drei";
-import { CuboidCollider, RigidBody } from "@react-three/rapier";
-import { useCallback, useMemo, useRef } from "react";
+import { RigidBody } from "@react-three/rapier";
+import { useMemo, useRef } from "react";
 
 
 const AquaticSystem = (props) => {
@@ -9,8 +9,6 @@ const AquaticSystem = (props) => {
   const { nodes, materials } = useGLTF("models-3d/acuatic-system.glb");
   const PATH = useMemo(() => "materials/floor/plaster_grey_04_", []);
   const collisionPlaneSize = 1.6;
-
-  
 
   const floorTexture = useTexture({
     map: PATH + "diff_1k.jpg",
@@ -22,10 +20,8 @@ const AquaticSystem = (props) => {
   console.log(floorTexture);
 
   return (
-    
     <group {...props} dispose={null}>
       <group name="Scene">
-
         <mesh
           name="high_poly"
           geometry={nodes.high_poly.geometry}
@@ -34,7 +30,7 @@ const AquaticSystem = (props) => {
           receiveShadow
           scale={1.57}
         />
-        <RigidBody type = "fixed" ref={systemRef}> 
+        <RigidBody type="fixed" ref={systemRef}>
         <mesh
           name="System"
           rotation-x={-Math.PI / 2}
@@ -52,7 +48,6 @@ const AquaticSystem = (props) => {
         </RigidBody>
       </group>
     </group>
-    
   );
 };
 export default AquaticSystem;

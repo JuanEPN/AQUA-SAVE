@@ -25,19 +25,19 @@ const RainDrop = (props) =>{
           name="RainDrop1"
           geometry={nodes.high_poly.geometry}
           material={materials.Material_0}
-          scale={0.30}
+          scale={0.9}
           castShadow
-          position={[-0.9, 0.24, 0.2]}
+          position={[-3, 0.6, 0.2]}
           onClick={() => handleText(dataMicroplastic)}
         />
         <mesh
           name="RainDrop2"
           geometry={nodes.high_poly.geometry}
           material={materials.Material_0}
-          scale={0.30}
+          scale={0.9}
           castShadow
           onClick={() => handleText(dataRecomendation)}
-          position={[1, 0.3, 0.2]}>
+          position={[3.3, 0.6, 0.2]}>
         </mesh>            
       </group>
     </group>

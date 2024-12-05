@@ -12,7 +12,7 @@ const provider = new GoogleAuthProvider();
 
 const useAuthStore = create((set) => ({
   user: null,
-  loading: true, // Inicialmente, el estado es de carga
+  loading: true,
   error: null,
 
   loginGoogleWithPopUp: async () => {
@@ -41,10 +41,10 @@ const useAuthStore = create((set) => ({
   },
 
   observeAuthState: () => {
-    set({ loading: true }); // Marcar como 'loading' mientras se observa el estado de autenticación
+    set({ loading: true });
     onAuthStateChanged(auth, (user) => {
       console.log("Estado de autenticación:", user);
-      set({ user, loading: false }); // Una vez que se conoce el estado, actualizar 'user' y 'loading'
+      set({ user, loading: false });
     });
   },
 }));
@@ -52,7 +52,7 @@ const useAuthStore = create((set) => ({
 export const useAuthObserver = () => {
   const observeAuthState = useAuthStore((state) => state.observeAuthState);
   useEffect(() => {
-    observeAuthState(); // Llamar la función de observación cuando se monta el componente
+    observeAuthState();
   }, [observeAuthState]);
 };
 

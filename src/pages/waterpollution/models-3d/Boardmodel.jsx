@@ -1,13 +1,13 @@
-import { useGLTF, Text } from "@react-three/drei"; // Importamos Text
-import useSlider from "../../../stores/use-slider";
-import { dataImplication } from "../../../Locals/dataImplication";
-import { dataPollution } from "../../../Locals/dataPollution";
-import { dataTreatment } from "../../../Locals/dataTreatment";
-import { dataWatercare } from "../../../Locals/dataWatercare";
+import { useGLTF, Text } from '@react-three/drei';  // Importamos Text
+import useSlider from '../../../stores/use-slider';
+import { dataImplication } from '../../../Locals/dataImplication';
+import { dataPollution } from '../../../Locals/dataPollution';
+import { dataTreatment } from '../../../Locals/dataTreatment';
+import { dataWatercare } from '../../../Locals/dataWatercare';
 
 const Boardmodel = (props) => {
-  const { nodes, materials } = useGLTF("models-3d/WoodenSigns.glb");
-  const { setSlider, slider, setData } = useSlider();
+  const { nodes, materials } = useGLTF('models-3d/WoodenSigns.glb');
+  const {setSlider, slider, setData} = useSlider(); 
 
   const handleText = (data) => {
     setData(data);
@@ -15,22 +15,18 @@ const Boardmodel = (props) => {
   };
 
   const handlePointerOver = () => {
-    document.body.style.cursor = "pointer";
+    document.body.style.cursor = 'pointer';
   };
-
+  
   const handlePointerOut = () => {
-    document.body.style.cursor = "auto";
+    document.body.style.cursor = 'auto';
   };
 
   return (
     <group {...props} dispose={null}>
       {/* Primer cartel */}
-      <group
-        castShadow
-        receiveShadow
-        position={[-5.1, 1.5, 4.7]}
-        rotation={[0, 4.7, 0]}
-        scale={[0.5, 0.5, 0.5]}
+      <group 
+        position={[-5.1, 1.5, 4.7]} rotation={[0, 4.7, 0]} scale={[0.5, 0.5, 0.5]} 
         onPointerOver={handlePointerOver}
         onPointerOut={handlePointerOut}
         onClick={() => handleText(dataPollution)}
@@ -39,13 +35,13 @@ const Boardmodel = (props) => {
           castShadow
           receiveShadow
           geometry={nodes.Sign12_1.geometry}
-          material={materials["Dark Wood"]}
+          material={materials['Dark Wood']}
         />
         <mesh
           castShadow
           receiveShadow
           geometry={nodes.Sign12_2.geometry}
-          material={materials["Light Wood"]}
+          material={materials['Light Wood']}
         />
         <mesh
           castShadow
@@ -61,25 +57,18 @@ const Boardmodel = (props) => {
         />
         {/* Añadir texto en el cartel */}
         <Text
-          position={[0.1, 1.6, 0]}
+          position={[0.1, 1.6, 0]} 
           rotation={[0, 1.6, 0]}
-          fontSize={0.2}
-          color="purple"
-          style={{
-            fontFamily: "Georgia, serif"
-          }}
+          fontSize={0.2}           
+          color="purple"           
         >
           Contaminación
         </Text>
       </group>
 
       {/* Segundo cartel */}
-      <group
-        castShadow
-        receiveShadow
-        position={[5.3, 1.5, 6.7]}
-        rotation={[0, 4.7, 0]}
-        scale={[0.5, 0.5, 0.5]}
+      <group 
+        position={[5.3, 1.5, 6.7]} rotation={[0, 4.7, 0]} scale={[0.5, 0.5, 0.5]} 
         onPointerOver={handlePointerOver}
         onPointerOut={handlePointerOut}
         onClick={() => handleText(dataTreatment)}
@@ -88,13 +77,13 @@ const Boardmodel = (props) => {
           castShadow
           receiveShadow
           geometry={nodes.Sign12_1.geometry}
-          material={materials["Dark Wood"]}
+          material={materials['Dark Wood']}
         />
         <mesh
           castShadow
           receiveShadow
           geometry={nodes.Sign12_2.geometry}
-          material={materials["Light Wood"]}
+          material={materials['Light Wood']}
         />
         <mesh
           castShadow
@@ -114,21 +103,14 @@ const Boardmodel = (props) => {
           fontSize={0.2}
           rotation={[0, 1.6, 0]}
           color="purple"
-          style={{
-            fontFamily: "Georgia, serif"
-          }}
         >
           Tratamiento del agua
         </Text>
       </group>
 
       {/* Tercer cartel */}
-      <group
-        castShadow
-        receiveShadow
-        position={[3, 1.5, 6.7]}
-        rotation={[0, 4.7, 0]}
-        scale={[0.5, 0.5, 0.5]}
+      <group 
+        position={[3, 1.5, 6.7]} rotation={[0, 4.7, 0]} scale={[0.5, 0.5, 0.5]} 
         onPointerOver={handlePointerOver}
         onPointerOut={handlePointerOut}
         onClick={() => handleText(dataWatercare)}
@@ -137,13 +119,13 @@ const Boardmodel = (props) => {
           castShadow
           receiveShadow
           geometry={nodes.Sign12_1.geometry}
-          material={materials["Dark Wood"]}
+          material={materials['Dark Wood']}
         />
         <mesh
           castShadow
           receiveShadow
           geometry={nodes.Sign12_2.geometry}
-          material={materials["Light Wood"]}
+          material={materials['Light Wood']}
         />
         <mesh
           castShadow
@@ -163,21 +145,14 @@ const Boardmodel = (props) => {
           fontSize={0.2}
           color="purple"
           rotation={[0, 1.6, 0]}
-          style={{
-            fontFamily: "Georgia, serif"
-          }}
         >
           Cuidados del agua
         </Text>
       </group>
 
       {/* Cuarto cartel */}
-      <group
-        castShadow
-        receiveShadow
-        position={[-5.8, 0.7, 6.9]}
-        rotation={[0, 4.7, 0]}
-        scale={[0.5, 0.5, 0.5]}
+      <group 
+        position={[-5.8, 0.7, 6.9]} rotation={[0, 4.7, 0]} scale={[0.5, 0.5, 0.5]} 
         onPointerOver={handlePointerOver}
         onPointerOut={handlePointerOut}
         onClick={() => handleText(dataImplication)}
@@ -186,13 +161,13 @@ const Boardmodel = (props) => {
           castShadow
           receiveShadow
           geometry={nodes.Sign12_1.geometry}
-          material={materials["Dark Wood"]}
+          material={materials['Dark Wood']}
         />
         <mesh
           castShadow
           receiveShadow
           geometry={nodes.Sign12_2.geometry}
-          material={materials["Light Wood"]}
+          material={materials['Light Wood']}
         />
         <mesh
           castShadow
@@ -212,9 +187,6 @@ const Boardmodel = (props) => {
           rotation={[0, 1.6, 0]}
           fontSize={0.2}
           color="purple"
-          style={{
-            fontFamily: "Georgia, serif"
-          }}
         >
           Implicaciones empresas y personas
         </Text>
@@ -223,5 +195,5 @@ const Boardmodel = (props) => {
   );
 };
 
-useGLTF.preload("/Lowpoly Wooden Signs.glb");
+useGLTF.preload('/Lowpoly Wooden Signs.glb');
 export default Boardmodel;

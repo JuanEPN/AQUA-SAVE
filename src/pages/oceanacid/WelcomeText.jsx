@@ -6,13 +6,17 @@ import { useNavigate } from "react-router-dom";
 const WelcomeText = () => {
 
   const handleBottle =() => {
-    alert("DA CLICK sobre las estrellas para ver el contenido de la pagina\n----------------------------------------------------------------------\nCONTROLES PARA MOVER LA TORTUGA\nArriba: W \nAbajo: S\nDerecha: -> flecha derecha\nIzquierda: <- flecha izquierda\nAdelante: flecha en dirección hacia abajo\nAtrás: flecha en dirección hacia arriba"
+    alert("DA CLICK sobre las estrellas para ver el contenido de la pagina\n----------------------------------------------------------------------\nCONTROLES PARA MOVER LA TORTUGA\nArriba: W \nAbajo: S\nDerecha: -> flecha derecha\nIzquierda: <- flecha izquierda\nAdelante: flecha en dirección hacia abajo\nAtrás: flecha en dirección hacia arriba\n----------------------------------------------------------------------\nBOTELLA\nPuedes darle click a la botella para poder sacarla del oceano"
     );
   };
 
   const navigate = useNavigate();
   const handleClick = () => {
     navigate('/Sitemap');
+  };
+
+  const handleEffect = () => {
+    navigate('/Welcome');
   };
 
   return (
@@ -124,6 +128,18 @@ const WelcomeText = () => {
               volver al menú
             </button>
         </Html>
+
+        {/*<Html 
+          occlude
+          center
+          distanceFactor={13}
+          transform
+          position={[20, 3, 20]}>
+                
+            <button className="ButtonEffect" onClick={handleEffect}> 
+              Aplicar Efecto
+            </button>
+        </Html>*/}
       
     </Center>
     </>

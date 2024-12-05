@@ -1,16 +1,14 @@
-
 .pollution-container {
     background-image: url('/public/images/waterpollution/background2.jpeg');
     background-size: cover;
     background-position: center;
     padding: 20px;
-    color: rgba(0, 0, 0, 0.7);
+    color: rgba(0, 0, 0, 0.7); 
     min-height: 100vh; 
     display: flex;
     flex-direction: column;
     align-items: center; 
 }
-
 
 .pollution-title {
     font-size: 2.5rem;
@@ -19,7 +17,6 @@
     color: #8a78cc;
     font-family: Georgia, serif;
 }
-
 
 .pollution-introduction {
     margin-bottom: 40px;
