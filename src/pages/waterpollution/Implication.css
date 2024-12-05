@@ -4,7 +4,7 @@
     background-position: center;
     padding: 20px;
     color: rgba(0, 0, 0, 0.7); 
-    min-height: 100vh; 
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -96,7 +96,7 @@
     font-size: 1.2rem;
     line-height: 1.6;
 }
-/* Botones */
+
 .buttonBackSite,
 .buttonBackWater {
     background-color: #8a78cc;
@@ -125,7 +125,7 @@
     margin: 20px 0;
 }
 
-/* Responsividad */
+
 @media (max-width: 768px) {
     .pollution-description,
     .pollution-introduction {
