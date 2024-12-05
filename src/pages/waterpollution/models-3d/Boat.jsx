@@ -38,13 +38,8 @@ const Boatmodel = (props) => {
     }
   });
 
-
-  const handleBoat = useCallback(()=> {
-    BoatRef.current.applyTorqueImpulse({x:0, y:20, z:0}, true);
-  },[]);
-
   return (
-    <RigidBody type="dynamic" colliders="trimesh" mass={75} gravityScale={0.05} restitution={1}>
+    <RigidBody type="fixed">
       <group
         {...props}
         dispose={null}
