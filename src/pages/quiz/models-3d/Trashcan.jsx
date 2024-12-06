@@ -6,16 +6,26 @@ const Trashcan = ({ onBottleInside, ...props }) => {
   const { nodes, materials } = useGLTF("/models-3d/trash_can.glb");
   const trashcanRef = useRef();
 
+
   const handleCollisionEnter = (event) => {
-    if (event.other.rigidBody.name === "bottle") { // Si el objeto es la botella
+    console.log("Colisión detectada:", event); // Log del evento completo
+  
+    if (event.other.colliderObject.name === "bottle") { // Verificar el nombre del objeto colisionado
+      console.log("La botella ha caído en el bote de basura");
       onBottleInside(); // Ejecutar el callback para mostrar el mensaje
     }
   };
+  
 
   return (
     <group {...props} dispose={null}>
       <group rotation={[-Math.PI / 2, 0, 0]} scale={0.5} ref={trashcanRef}>
-        <RigidBody onCollisionEnter={handleCollisionEnter} type="fixed"> {/* Uso de RigidBody */}
+        <RigidBody 
+        name= "trashcan" 
+        colliders="trimesh"
+        onCollisionEnter={handleCollisionEnter} 
+        type="fixed"> {/* Uso de RigidBody */}
+        
           <mesh
             castShadow
             receiveShadow
