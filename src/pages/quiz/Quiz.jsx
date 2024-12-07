@@ -6,9 +6,6 @@ import LightsOcean from "../../lights/LightsOcean";
 import Bottlequiz from "./models-3d/Bottlequiz";
 import { OrbitControls } from "@react-three/drei";
 import { Oceanquiz } from "./models-3d/Oceanquiz";
-import React from 'react';
-import './Quiz.css';
-
 
 const Quiz = () => {
   const [message, setMessage] = useState(""); // Estado para el mensaje
