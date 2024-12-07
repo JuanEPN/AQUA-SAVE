@@ -7,7 +7,6 @@ import Bottlequiz from "./models-3d/Bottlequiz";
 import { OrbitControls } from "@react-three/drei";
 import { Oceanquiz } from "./models-3d/Oceanquiz";
 
-
 const Quiz = () => {
   const [message, setMessage] = useState(""); // Estado para el mensaje
 
