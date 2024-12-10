@@ -49,9 +49,9 @@ const Bottlequiz = (props) => {
 
   return (
   
-    <group {...props} dispose={null} position={[-5,0,0]}>
+    <group {...props} dispose={null}>
       <RigidBody
-        name="bottle"
+        name={props.name}
         ref={bottleRef}
         type={isDragging ? "kinematicPosition" : "dynamic"} // Cambia según el estado de arrastre
         rotation={[-Math.PI / 2, 0, 0]}

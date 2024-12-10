@@ -1,25 +1,27 @@
 import React, { useRef } from "react";
 import { useGLTF } from "@react-three/drei";
 import { RigidBody } from "@react-three/rapier";
+import useQuizStore from "../../../stores/use-quiz-store";
 
 const Trashcan = ({ onBottleInside, ...props }) => {
   const { nodes, materials } = useGLTF("/models-3d/trash_can.glb");
   const trashcanRef = useRef();
-
+  const { incrementLevels } = useQuizStore(); 
 
   const handleCollisionEnter = (event) => {
-    console.log("Colisión detectada:", event); // Log del evento completo
-  
-    if (event.other.colliderObject.name === "bottle") { // Verificar el nombre del objeto colisionado
-      console.log("La botella ha caído en el bote de basura");
-      onBottleInside(); // Ejecutar el callback para mostrar el mensaje
+    if (event.other.colliderObject.name.startsWith("bottle-")) {
+      console.log(`${event.other.colliderObject.name} ha caído en el bote de basura`);
+      onBottleInside(); // Log para verificar
+      console.log("Se llamó a onBottleInside");
+      incrementLevels(); // Log para verificar
+      console.log("Se llamó a incrementLevels");
     }
   };
   
 
   return (
     <group {...props} dispose={null}>
-      <group rotation={[-Math.PI / 2, 0, 0]} scale={0.5} ref={trashcanRef}>
+      <group rotation={[-Math.PI / 2, 0, 0]} scale={1} ref={trashcanRef} position={[15, 0, 0]}>
         <RigidBody 
         name= "trashcan" 
         colliders="trimesh"
