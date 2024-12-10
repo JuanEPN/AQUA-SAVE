@@ -1,25 +1,30 @@
-import React from 'react';
-import { RigidBody } from '@react-three/rapier';
-import { MeshReflectorMaterial } from '@react-three/drei';
+import React from "react";
+import { useGLTF } from "@react-three/drei";
+import { RigidBody } from "@react-three/rapier";
 
-export function Oceanquiz() {
+const Oceanquiz = (props) => {
+  const { nodes, materials } = useGLTF("/models-3d/oceanq.glb");
   return (
-    <RigidBody type="fixed" colliders="trimesh" position={[-15,0, -15]}>
-      <mesh receiveShadow rotation={[-Math.PI / 2, 0, 0]}>
-        <planeGeometry args={[50, 50, 50, 50]} />
-        <MeshReflectorMaterial
-          blur={[300, 100]}
-          resolution={1024}
-          mixStrength={1}
-          mirror={0.5}
-          depthScale={1}
-          minDepthThreshold={0.8}
-          maxDepthThreshold={1.2}
-          color="#1e90ff"
-          metalness={0.6}
-          roughness={0.8}
-        />
-      </mesh>
+    <RigidBody type="fixed" colliders="trimesh">
+      <group {...props} dispose={null}>
+        <group scale={0.5} position={[-10, 0, 0]}>
+          <mesh
+            castShadow
+            receiveShadow
+            geometry={nodes.ocean3_m_ocean_0.geometry}
+            material={materials.m_ocean}
+          />
+          <mesh
+            castShadow
+            receiveShadow
+            geometry={nodes.sand3_m_sand_0.geometry}
+            material={materials.m_sand}
+          />
+        </group>
+      </group>
     </RigidBody>
   );
-}
+};
+
+useGLTF.preload("/models-3d/oceanq.glb");
+export default Oceanquiz;
