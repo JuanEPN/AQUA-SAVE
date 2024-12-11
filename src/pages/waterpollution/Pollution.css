@@ -36,7 +36,6 @@
     font-family: Georgia, serif;
 }
 
-
 .pollution-description {
     width: 80%; 
     max-width: 800px; 
@@ -50,7 +49,6 @@
     background-color: rgba(211, 237, 247, 0.8); 
 }
 
-
 .Scene1pollution {
     margin: 10px;
     height: 400px;
@@ -60,7 +58,6 @@
     height: 500px;
     width: 500px;
 }
-
 
 .Scene-title {
     background-color: rgba(211, 237, 247, 0.8);
@@ -72,7 +69,6 @@
     padding: 10px 20px;
     font-family: Georgia, serif;
 }
-
 
 .pollution-title-explanation {
     font-size: 2rem;

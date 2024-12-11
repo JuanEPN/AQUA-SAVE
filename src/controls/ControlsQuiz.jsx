@@ -2,8 +2,6 @@ import { useEffect } from 'react';
 import { useThree } from '@react-three/fiber';
 import { OrbitControls } from '@react-three/drei';
 
-
-
 const ControlsQuiz = () => {
   const { camera } = useThree(); 
 

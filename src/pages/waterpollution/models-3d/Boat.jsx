@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useRef } from "react";
+import React, { useEffect, useRef } from "react";
 import { useGLTF, useKeyboardControls } from "@react-three/drei";
 import { useFrame } from "@react-three/fiber";
 import { RigidBody } from "@react-three/rapier";

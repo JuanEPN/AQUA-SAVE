@@ -2,8 +2,6 @@ import React, { useEffect } from 'react';
 import { OrbitControls } from '@react-three/drei';
 import { useThree } from '@react-three/fiber';
 
-
-
 const Controls = () => {
   const { camera } = useThree(); 
 
