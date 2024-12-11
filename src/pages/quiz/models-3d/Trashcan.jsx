@@ -8,13 +8,27 @@ const Trashcan = ({ onBottleInside, ...props }) => {
   const trashcanRef = useRef();
   const { incrementLevels } = useQuizStore(); 
 
+
+  
   const handleCollisionEnter = (event) => {
-    if (event.other.colliderObject.name.startsWith("bottle-")) {
-      console.log(`${event.other.colliderObject.name} ha caído en el bote de basura`);
-      onBottleInside(); // Log para verificar
-      console.log("Se llamó a onBottleInside");
-      incrementLevels(); // Log para verificar
-      console.log("Se llamó a incrementLevels");
+    const objectName = event.other.colliderObject.name;
+  
+    // Obtener el estado del store para ver si este objeto ya ha colisionado
+    const collidedObjects = useQuizStore.getState().collidedObjects;
+  
+    if (!collidedObjects.has(objectName)) {
+      // Si el objeto no ha colisionado antes
+      console.log(`${objectName} ha tocado la bote de basura`);
+      onBottleInside(objectName); // Llamamos a la función para mostrar el mensaje personalizado según el objeto
+  
+      // Incrementamos el nivel
+      useQuizStore.getState().incrementLevels();
+      console.log("Nivel incrementado");
+  
+      // Añadimos el objeto al Set de colisiones para evitar futuras colisiones
+      useQuizStore.getState().addCollidedObject(objectName);
+    } else {
+      console.log(`${objectName} ya ha colisionado previamente`);
     }
   };
   
