@@ -5,7 +5,7 @@ import { RigidBody } from "@react-three/rapier";
 const Oceanquiz = (props) => {
   const { nodes, materials } = useGLTF("/models-3d/oceanq.glb");
   return (
-    <RigidBody type="fixed" colliders="trimesh">
+    <RigidBody type="fixed" colliders="cuboid">
       <group {...props} dispose={null}>
         <group scale={0.5} position={[-10, 0, 0]}>
           <mesh

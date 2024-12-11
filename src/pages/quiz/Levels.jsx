@@ -3,58 +3,29 @@ import React from "react";
 import useQuizStore from "../../stores/use-quiz-store";
 
 const Levels = () => {
-  // Suscripción directa al estado levels
+  // Suscripción al estado global
   const levels = useQuizStore((state) => state.levels);
 
   return (
     <div className="rating">
-      {/* Estrella 1 */}
-      <input
-        checked={levels >= 1}
-        className="radio"
-        type="radio"
-        id="star-1"
-        name="star-radio"
-        value="star-1"
-        readOnly
-      />
-      <label className="radio-label" htmlFor="star-1">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-          <path pathLength="360" d="M12,17.27L18.18,21L16.54,13.97L22,9.24L14.81,8.62L12,2L9.19,8.62L2,9.24L7.45,13.97L5.82,21L12,17.27Z"></path>
-        </svg>
-      </label>
-
-      {/* Estrella 2 */}
-      <input
-        checked={levels >= 2}
-        className="radio"
-        type="radio"
-        id="star-2"
-        name="star-radio"
-        value="star-2"
-        readOnly
-      />
-      <label className="radio-label" htmlFor="star-2">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-          <path pathLength="360" d="M12,17.27L18.18,21L16.54,13.97L22,9.24L14.81,8.62L12,2L9.19,8.62L2,9.24L7.45,13.97L5.82,21L12,17.27Z"></path>
-        </svg>
-      </label>
-
-      {/* Estrella 3 */}
-      <input
-        checked={levels >= 3}
-        className="radio"
-        type="radio"
-        id="star-3"
-        name="star-radio"
-        value="star-3"
-        readOnly
-      />
-      <label className="radio-label" htmlFor="star-3">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-          <path pathLength="360" d="M12,17.27L18.18,21L16.54,13.97L22,9.24L14.81,8.62L12,2L9.19,8.62L2,9.24L7.45,13.97L5.82,21L12,17.27Z"></path>
-        </svg>
-      </label>
+      {[1, 2, 3, 4, 5].map((star) => (
+        <React.Fragment key={star}>
+          <input
+            checked={levels === 1 ? star <= 5 : levels === 2 ? star <= 4 : levels === 3 ? star <= 3 : levels === 4 ? star <= 2 : levels === 5 ? star <= 1 : false}
+            className="radio"
+            type="radio"
+            id={`star-${star}`}
+            name="star-radio"
+            value={`star-${star}`}
+            readOnly
+          />
+          <label className="radio-label" htmlFor={`star-${star}`}>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+              <path pathLength="360" d="M12,17.27L18.18,21L16.54,13.97L22,9.24L14.81,8.62L12,2L9.19,8.62L2,9.24L7.45,13.97L5.82,21L12,17.27Z" />
+            </svg>
+          </label>
+        </React.Fragment>
+      ))}
     </div>
   );
 };

@@ -4,9 +4,9 @@ import { RigidBody } from "@react-three/rapier";
 import * as THREE from "three";
 import { useFrame } from "@react-three/fiber";
 
-const Bottlequiz = (props) => {
-  const { nodes, materials } = useGLTF("/models-3d/plastic_water_bottle.glb");
-  const bottleRef = useRef();
+const Bag = () => {
+  const bagRef = useRef();
+  const { nodes, materials } = useGLTF("/models-3d/acidification/bag.glb");
   const [isDragging, setIsDragging] = useState(false);
   const [mousePosition, setMousePosition] = useState(new THREE.Vector3());
 
@@ -16,7 +16,7 @@ const Bottlequiz = (props) => {
       setIsDragging(true);
       setMousePosition(e.point); // Guardar la posición inicial del mouse
     } else {
-      setIsDragging(false); // Soltar la botella si se está arrastrando
+      setIsDragging(false); // Soltar la bolsa si se está arrastrando
     }
   };
 
@@ -26,7 +26,7 @@ const Bottlequiz = (props) => {
     }
   };
 
-  // Maneja la tecla Espacio para soltar la botella
+  // Maneja la tecla Espacio para soltar la bolsa
   const handleKeyUp = (e) => {
     if (e.code === "Space") {
       setIsDragging(false);
@@ -34,7 +34,7 @@ const Bottlequiz = (props) => {
   };
 
   useFrame(({ camera, mouse }) => {
-    if (isDragging && bottleRef.current) {
+    if (isDragging && bagRef.current) {
       // Convertir la posición del mouse al espacio 3D
       const vector = new THREE.Vector3(mouse.x, mouse.y, 0.5);
       vector.unproject(camera);
@@ -42,8 +42,8 @@ const Bottlequiz = (props) => {
       const distance = -camera.position.z / dir.z;
       const pos = camera.position.clone().add(dir.multiplyScalar(distance));
 
-      // Actualizar la posición de la botella
-      bottleRef.current.setNextKinematicTranslation(pos);
+      // Actualizar la posición de la bolsa
+      bagRef.current.setNextKinematicTranslation(pos);
     }
   });
 
@@ -54,34 +54,30 @@ const Bottlequiz = (props) => {
   }, []);
 
   return (
-  
-    <group {...props} dispose={null}>
-      <RigidBody
-        name={props.name}
-        ref={bottleRef}
-        type={isDragging ? "kinematicPosition" : "dynamic"} // Cambia según el estado de arrastre
-        rotation={[-Math.PI / 2, 0, 0]}
-        scale={[0.1, 0.1, 0.1]}
-        onPointerDown={handlePointerDown} // Detectar clic para iniciar arrastre
-        onPointerMove={handlePointerMove}
-           
-      >
-        <mesh
-          castShadow
-          receiveShadow
-          geometry={nodes.Object_2.geometry}
-          material={materials["Material.023"]}
-        />
-        <mesh
-          castShadow
-          receiveShadow
-          geometry={nodes.Object_3.geometry}
-          material={materials["Material.024"]}
-        />
-      </RigidBody>
-    </group>
+    <>
+    <group dispose={null} position={[0,2,5]}>
+          <group name="Scene">
+               <RigidBody
+               name="bag"
+               ref={bagRef}
+               type={isDragging ? "kinematicPosition" : "dynamic"} // Cambia según el estado de arrastre
+               rotation={[-Math.PI / 1, 9, 3]}
+               onPointerDown={handlePointerDown} // Detectar clic para iniciar arrastre
+               onPointerMove={handlePointerMove}
+               >
+               <mesh
+               castShadow
+               receiveShadow
+               scale={1.2}
+               geometry={nodes.Bag.geometry}
+               material={materials.Material_0}
+               />
+               </RigidBody>
+          </group>
+     </group> 
+    </>
   );
 };
 
-useGLTF.preload("/models-3d/plastic_water_bottle.glb");
-export default Bottlequiz;
+export default Bag;
+useGLTF.preload("models-3d/acidification/bag.glb");
