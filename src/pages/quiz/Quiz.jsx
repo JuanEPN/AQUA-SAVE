@@ -4,6 +4,7 @@ import Trashcan from "./models-3d/Trashcan";
 import { Physics } from "@react-three/rapier";
 import LightsOcean from "../../lights/LightsOcean";
 import Bottlequiz from "./models-3d/Bottlequiz";
+import Bagquiz from "./models-3d/Bagquiz";
 import Textq from "./TextQ";
 import ControlsQuiz from "../../controls/ControlsQuiz";
 import Levels from "./Levels";
@@ -12,11 +13,29 @@ import Oceanquiz from "./models-3d/Oceanquiz";
 const Quiz = () => {
   const [message, setMessage] = useState(""); // Estado para el mensaje
 
-  // Maneja el evento cuando una botella está dentro del basurero
-  const handleBottleInside = () => {
-    setMessage("¡Correcto! Has tirado la botella a la basura, sigue así.");
+  const handleBottleInside = (objectName) => {
+    let message = "";
+    
+    // Definimos el mensaje dependiendo del objeto que colisione
+    switch(objectName) {
+      case "bottle-0":
+        message = "¡Correcto! Has tirado la botella a la basura, sigue así.";
+        break;
+      case "bottle-1":
+        message = "¡Bien hecho! La botella fue a la basura. ¡Sigue así!";
+        break;
+      case "bottle-2":
+        message = "¡Excelente! La botella ha sido tirada a la basura. ¡Perfecto!";
+        break;
+      case "bag":
+        message = "¡Excelente! La bolsa ha sido tirada a la basura. ¡Perfecto!";
+        break;
+    }
+
+    setMessage(message); // Establece el mensaje para mostrar
     setTimeout(() => setMessage(""), 3000); // Eliminar el mensaje después de 3 segundos
   };
+
 
   // Posiciones para las botellas
   const bottlePositions = [
@@ -46,6 +65,7 @@ const Quiz = () => {
           <Textq />
           <Oceanquiz />
           <LightsOcean />
+          <Bagquiz/>
           {bottlePositions.map((position, index) => (
             <Bottlequiz key={index} position={position} name={`bottle-${index}`} />
           ))}
