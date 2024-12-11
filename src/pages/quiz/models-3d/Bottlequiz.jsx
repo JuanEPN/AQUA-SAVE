@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useRef, useState, useEffect} from "react";
 import { useGLTF } from "@react-three/drei";
 import { RigidBody } from "@react-three/rapier";
 import * as THREE from "three";
@@ -10,6 +10,7 @@ const Bottlequiz = (props) => {
   const [isDragging, setIsDragging] = useState(false);
   const [mousePosition, setMousePosition] = useState(new THREE.Vector3());
 
+  // Manejo de arrastre con clic  
   const handlePointerDown = (e) => {
     e.stopPropagation();
     if (!isDragging) {
@@ -32,6 +33,14 @@ const Bottlequiz = (props) => {
       setIsDragging(false);
     }
   };
+
+  // Restaurar la posicion inicial 
+  useEffect(()=>{
+    if (bottleRef.current && props.position){ 
+      bottleRef.current.setTranslation(new THREE.Vector3(...props.position), true); //Restaura posicion
+      setIsDragging(false); // Asegura que no esta en modo de arrastre
+    }
+  }, [props.position]); 
 
   useFrame(({ camera, mouse }) => {
     if (isDragging && bottleRef.current) {

@@ -29,7 +29,6 @@ const Rivermodel = (props) => {
     }
   }, [actions]);
 
-
   return (
     <group ref={group} {...props} dispose={null}>
       <group name="Sketchfab_Scene">

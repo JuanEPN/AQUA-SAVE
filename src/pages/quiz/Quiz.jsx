@@ -9,6 +9,8 @@ import Textq from "./TextQ";
 import ControlsQuiz from "../../controls/ControlsQuiz";
 import Levels from "./Levels";
 import Oceanquiz from "./models-3d/Oceanquiz";
+import Staging from "../staging/Staging";
+import Videoquiz from "./Videoquiz";
 
 const Quiz = () => {
   const [message, setMessage] = useState(""); // Estado para el mensaje
@@ -60,7 +62,9 @@ const Quiz = () => {
       <Levels />
       {message && <div className="message">{message}</div>} 
       <Canvas>
+        <Videoquiz name="Screen" position-y={9} position-x={-5} position-z={-5}  scale={5} />
         <ControlsQuiz />
+        <Staging />
         <Physics>
           <Textq />
           <Oceanquiz />

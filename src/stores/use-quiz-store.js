@@ -9,6 +9,12 @@ const useQuizStore = create((set) => ({
     newCollidedObjects.add(objectName); // Agregar el objeto al Set
     return { collidedObjects: newCollidedObjects };
   }),
+
+  resetQuiz: () =>
+    set(() =>({
+      levels: 0, //Reinicia el conteo
+      collidedObjects: new Set(), //Limpia los objetos colisionados
+    })),
 }));
 
 export default useQuizStore;

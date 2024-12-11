@@ -1,13 +1,9 @@
-
 import { useRef } from "react";
 import { Color  } from "three";
 
 const LightsOcean = () => {
   const directionalLightRef = useRef();
- 
-  
   const pointLightRef = useRef();
-
 
   return (
      <>
