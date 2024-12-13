@@ -8,8 +8,6 @@ const HermitCrab = (props) => {
   );
   const { actions } = useAnimations(animations, crabRef);
 
-  
-
   useEffect(() => {
     actions["Animation"]?.play();
     return () => actions["Animation"]?.stop();

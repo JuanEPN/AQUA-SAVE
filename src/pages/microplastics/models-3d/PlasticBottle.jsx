@@ -16,11 +16,11 @@ const PlasticBottle = (props) => {
       return sub(
         (state) => state,
         (pressed) => {
-          console.log("forward", pressed);
-          console.log("back", pressed);
-          console.log("left", pressed);
-          console.log("right", pressed);
-          console.log("jump", pressed);
+          console.log(pressed);
+          console.log( pressed);
+          console.log(pressed);
+          console.log( pressed);
+          console.log(pressed);
         }
       );
     },
