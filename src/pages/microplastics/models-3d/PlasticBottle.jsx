@@ -6,6 +6,7 @@ import useSlider from "../../../stores/use-slider";
 import { dataMSolution } from "../../../Locals/dataMSolution";
 
 
+
 const PlasticBottle = (props) => {
     const {nodes, materials} = useGLTF("models-3d/plastic-bottle.glb");
     const [sub,get] = useKeyboardControls();
@@ -58,25 +59,27 @@ const PlasticBottle = (props) => {
     const handleText = (data) => {
       setData(data);
       setSlider(true);
-      console.log("click", slider);
+      console.log(slider);
     };
 
   return (
-    <group {...props} dispose={null}>
-      <group name="Scene">
-        <mesh 
-          name="high_poly"
-          ref={PlasticBottleRef}
-          geometry={nodes.high_poly.geometry}
-          material={materials.Material_0}
-          scale={1}
-          castShadow
-          receiveShadow
-          position={[0, -0.1, 2]} 
-          onClick={() => handleText(dataMSolution)}                   
-        /> 
+    
+      <group {...props} dispose={null}>
+        <group name="Scene">
+          <mesh 
+            name="high_poly"
+            ref={PlasticBottleRef}
+            geometry={nodes.high_poly.geometry}
+            material={materials.Material_0}
+            scale={1}
+            castShadow
+            receiveShadow
+            position={[0, -0.1, 2]} 
+            onClick={() => handleText(dataMSolution)}                   
+          /> 
+        </group>
       </group>
-    </group>
+    
     );
   };
 export default PlasticBottle;

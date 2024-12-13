@@ -20,34 +20,36 @@ const AquaticSystem = (props) => {
   console.log(floorTexture);
 
   return (
-    <group {...props} dispose={null}>
-      <group name="Scene">
-        <mesh
-          name="high_poly"
-          geometry={nodes.high_poly.geometry}
-          material={materials.Material_0}
-          castShadow
-          receiveShadow
-          scale={1.57}
-        />
-        <RigidBody type="fixed" ref={systemRef}>
-        <mesh
-          name="System"
-          rotation-x={-Math.PI / 2}
-          position-y={-0.12}
-          receiveShadow 
-        >
-          <circleGeometry args={[5, 16]} />
-          <meshStandardMaterial
-            map={floorTexture.map}
-            normalMap={floorTexture.normalMap}
-            aoMap={floorTexture.aoMap}
-            roughnessMap={floorTexture.roughnessMap}
+    
+
+      <group {...props} dispose={null}>
+        <group name="Scene">
+          <mesh
+            name="high_poly"
+            geometry={nodes.high_poly.geometry}
+            material={materials.Material_0}
+            castShadow
+            receiveShadow
+            scale={1.57}
           />
-        </mesh>
-        </RigidBody>
+          <RigidBody type="fixed" ref={systemRef}>
+            <mesh
+              name="System"
+              rotation-x={-Math.PI / 2}
+              position-y={-0.12}
+              receiveShadow
+            >
+              <circleGeometry args={[5, 16]} />
+              <meshStandardMaterial
+                map={floorTexture.map}
+                normalMap={floorTexture.normalMap}
+                aoMap={floorTexture.aoMap}
+                roughnessMap={floorTexture.roughnessMap}
+              />
+            </mesh>
+          </RigidBody>
+        </group>
       </group>
-    </group>
   );
 };
 export default AquaticSystem;

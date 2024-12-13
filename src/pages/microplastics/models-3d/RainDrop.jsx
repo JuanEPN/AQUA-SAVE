@@ -15,7 +15,7 @@ const RainDrop = (props) =>{
     const handleText = (data) => {
       setData(data);
       setSlider(true);
-      console.log("click", slider);
+      console.log(slider);
     };
 
     return(
