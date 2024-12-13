@@ -1,14 +1,16 @@
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { useGLTF } from "@react-three/drei";
 import { RigidBody } from "@react-three/rapier";
 import * as THREE from "three";
 import { useFrame } from "@react-three/fiber";
+import useQuizStore from "../../../stores/use-quiz-store";
 
-const Bag = () => {
+const Bag = (props) => {
   const bagRef = useRef();
   const { nodes, materials } = useGLTF("/models-3d/acidification/bag.glb");
   const [isDragging, setIsDragging] = useState(false);
   const [mousePosition, setMousePosition] = useState(new THREE.Vector3());
+  const { isResetting, endReset } = useQuizStore();
 
   const handlePointerDown = (e) => {
     e.stopPropagation();
@@ -33,6 +35,17 @@ const Bag = () => {
     }
   };
 
+    // Restaurar la posicion inicial 
+    useEffect(() => {
+      if (isResetting && bagRef.current && props.position) {
+        // Solo restaura las posiciones si el reseteo está activo
+        bagRef.current.setTranslation(new THREE.Vector3(...props.position), true);
+        
+        // Finaliza el estado de reseteo después de la restauración
+        endReset();
+      }
+    }, [isResetting]); // Se escucha únicamente el estado de reseteo
+
   useFrame(({ camera, mouse }) => {
     if (isDragging && bagRef.current) {
       // Convertir la posición del mouse al espacio 3D
@@ -55,7 +68,7 @@ const Bag = () => {
 
   return (
     <>
-    <group dispose={null} position={[0,2,5]}>
+    <group {...props} dispose={null} >
           <group name="Scene">
                <RigidBody
                name="bag"
@@ -68,9 +81,9 @@ const Bag = () => {
                <mesh
                castShadow
                receiveShadow
-               scale={1.2}
                geometry={nodes.Bag.geometry}
                material={materials.Material_0}
+               scale={2}
                />
                </RigidBody>
           </group>

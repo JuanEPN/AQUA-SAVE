@@ -11,10 +11,12 @@ const useQuizStore = create((set) => ({
   }),
 
   resetQuiz: () =>
-    set(() =>({
-      levels: 0, //Reinicia el conteo
-      collidedObjects: new Set(), //Limpia los objetos colisionados
+    set(() => ({
+      levels: 0,
+      collidedObjects: new Set(),
+      isResetting: true, // Activa el reseteo
     })),
+  endReset: () => set(() => ({ isResetting: false })), // Desactiva el reseteo
 }));
 
 export default useQuizStore;
