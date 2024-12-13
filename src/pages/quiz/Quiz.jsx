@@ -11,6 +11,9 @@ import Levels from "./Levels";
 import Oceanquiz from "./models-3d/Oceanquiz";
 import Staging from "../staging/Staging";
 import Videoquiz from "./Videoquiz";
+import Hook from "./models-3d/Hook";
+import PlasticBag from "./models-3d/PlasticBag";
+import ClothBag from "./models-3d/ClothBag";
 
 const Quiz = () => {
   const [message, setMessage] = useState(""); // Estado para el mensaje
@@ -69,7 +72,10 @@ const Quiz = () => {
           <Textq />
           <Oceanquiz />
           <LightsOcean />
-          <Bagquiz/>
+          <ClothBag position={[6, 3, 0]}/>
+          <Bagquiz position={[0,2,5]}/>
+          <Hook position={[-6, 3, 6]}/>
+          <PlasticBag position={[-10,2.5,3]}/>
           {bottlePositions.map((position, index) => (
             <Bottlequiz key={index} position={position} name={`bottle-${index}`} />
           ))}

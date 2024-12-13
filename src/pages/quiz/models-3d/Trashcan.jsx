@@ -8,7 +8,6 @@ const Trashcan = ({ onBottleInside, ...props }) => {
   const trashcanRef = useRef();
   const { incrementLevels } = useQuizStore(); 
 
-
   
   const handleCollisionEnter = (event) => {
     const objectName = event.other.colliderObject.name;
