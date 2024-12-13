@@ -64,9 +64,9 @@ const TextM = () => {
         center
         distanceFactor={3}
         transform
-        position={[-0.01, 1.2, 0]}
+        position={[0.2, 1.2, 0]}
       >
-        <p className="tittle-text"> Haga clic en una de las gotas de agua</p>
+        <p className="tittle-text"> Haz clic en la botella para ver las soluciones </p>
         
       </Html>
       <Text3D

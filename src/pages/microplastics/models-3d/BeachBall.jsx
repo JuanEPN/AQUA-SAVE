@@ -22,11 +22,6 @@ const BeachBall = (props) => {
       colliders="ball"
       gravityScale={0.1}
       restitution={1.5}
-
-      onCollisionEnter={(manifold, target, other)=> {
-        console.log('ball collided')
-      }}
-      onCollisionExit={()=> console.log('Ball exited')}
       
     >
       <group {...props} dispose={null}>

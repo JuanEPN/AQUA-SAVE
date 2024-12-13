@@ -1,8 +1,12 @@
 import { Canvas } from "@react-three/fiber";
 import "./Microplastics.css";
-import React, {useCallback, useMemo, useRef} from "react";
+import React, { useCallback, useMemo, useRef } from "react";
 import PlasticBottle from "./models-3d/PlasticBottle";
-import { KeyboardControls, OrbitControls, PositionalAudio } from "@react-three/drei";
+import {
+  KeyboardControls,
+  OrbitControls,
+  PositionalAudio,
+} from "@react-three/drei";
 import AquaticSystem from "./models-3d/AquaticSystem";
 import LightsAcuaticSystem from "../../lights/LightsAcuaticSystem";
 import TextM from "./TextM.jsx";
@@ -15,6 +19,7 @@ import HermitCrab from "./models-3d/HermitCrab.jsx";
 import PostProcessing from "./postprocessing/PostProcessing";
 import MicroVideo from "./MicroVideo.jsx";
 import SpongeBob from "./models-3d/SpongeBob.jsx";
+
 
 const Microplastics = () => {
   const map = useMemo(
@@ -30,10 +35,10 @@ const Microplastics = () => {
   );
 
   const audioRef = useRef(null);
-  const handleSound = useCallback(() =>{
+  const handleSound = useCallback(() => {
     audioRef.current.play();
     audioRef.current.setVolume(10);
-  },[]);
+  }, []);
 
   return (
     <>
@@ -44,14 +49,14 @@ const Microplastics = () => {
         onClick={handleSound}
       >
         <OrbitControls makeDefault />
-        <SpongeBob position={[-4.5,-0.7,1.3]} scale={0.7}/>
+        <SpongeBob position={[-4.5, -0.7, 1.3]} scale={0.7} />
         <LightsAcuaticSystem />
         <KeyboardControls map={map}>
           <PlasticBottle />
         </KeyboardControls>
         <Physics debug={false}>
           <BeachBall />
-          <AquaticSystem scale={6}/>
+          <AquaticSystem scale={6} />
         </Physics>
         <HermitCrab position={[1.7, -0.5, 1.8]} scale={0.4} />
         <TextM />
@@ -59,15 +64,17 @@ const Microplastics = () => {
         <PostProcessing />
         <MicroVideo name="S" position={[-5, 0.1, 0.1]} scale={1} />
         <group>
-          <PositionalAudio 
-          ref={audioRef}
-          url="/sounds/diver.mp3"
-          distance={1}/>
+          <PositionalAudio
+            ref={audioRef}
+            url="/sounds/diver.mp3"
+            distance={1}
+          />
         </group>
         <RainDrop />
       </Canvas>
+      
     </>
   );
-};
+}
 
 export default Microplastics;
