@@ -19,6 +19,7 @@ import HermitCrab from "./models-3d/HermitCrab.jsx";
 import PostProcessing from "./postprocessing/PostProcessing";
 import MicroVideo from "./MicroVideo.jsx";
 import SpongeBob from "./models-3d/SpongeBob.jsx";
+import { A11yAnnouncer } from "@react-three/a11y";
 
 
 const Microplastics = () => {
@@ -72,7 +73,7 @@ const Microplastics = () => {
         </group>
         <RainDrop />
       </Canvas>
-      
+      <A11yAnnouncer/>
     </>
   );
 }
