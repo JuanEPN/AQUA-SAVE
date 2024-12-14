@@ -1,15 +1,19 @@
-import React, { useRef, useState } from "react";
+import React, { useRef, useState, useEffect} from "react";
 import { useGLTF } from "@react-three/drei";
 import { RigidBody } from "@react-three/rapier";
 import * as THREE from "three";
 import { useFrame } from "@react-three/fiber";
+import useQuizStore from "../../../stores/use-quiz-store";
+
 
 const Bottlequiz = (props) => {
   const { nodes, materials } = useGLTF("/models-3d/plastic_water_bottle.glb");
   const bottleRef = useRef();
   const [isDragging, setIsDragging] = useState(false);
   const [mousePosition, setMousePosition] = useState(new THREE.Vector3());
+  const { isResetting, endReset } = useQuizStore();
 
+  // Manejo de arrastre con clic  
   const handlePointerDown = (e) => {
     e.stopPropagation();
     if (!isDragging) {
@@ -32,6 +36,17 @@ const Bottlequiz = (props) => {
       setIsDragging(false);
     }
   };
+
+  // Restaurar la posicion inicial 
+  useEffect(() => {
+    if (isResetting && bottleRef.current && props.position) {
+      // Solo restaura las posiciones si el reseteo está activo
+      bottleRef.current.setTranslation(new THREE.Vector3(...props.position), true);
+      
+      // Finaliza el estado de reseteo después de la restauración
+      endReset();
+    }
+  }, [isResetting]); // Se escucha únicamente el estado de reseteo
 
   useFrame(({ camera, mouse }) => {
     if (isDragging && bottleRef.current) {

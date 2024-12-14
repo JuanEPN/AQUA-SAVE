@@ -3,7 +3,6 @@ import { useGLTF, useTexture } from "@react-three/drei";
 import { RigidBody } from "@react-three/rapier";
 import { useMemo, useRef } from "react";
 
-
 const AquaticSystem = (props) => {
   const systemRef = useRef(null);
   const { nodes, materials } = useGLTF("models-3d/acuatic-system.glb");
@@ -31,20 +30,20 @@ const AquaticSystem = (props) => {
           scale={1.57}
         />
         <RigidBody type="fixed" ref={systemRef}>
-        <mesh
-          name="System"
-          rotation-x={-Math.PI / 2}
-          position-y={-0.12}
-          receiveShadow 
-        >
-          <circleGeometry args={[5, 16]} />
-          <meshStandardMaterial
-            map={floorTexture.map}
-            normalMap={floorTexture.normalMap}
-            aoMap={floorTexture.aoMap}
-            roughnessMap={floorTexture.roughnessMap}
-          />
-        </mesh>
+          <mesh
+            name="System"
+            rotation-x={-Math.PI / 2}
+            position-y={-0.12}
+            receiveShadow
+          >
+            <circleGeometry args={[5, 16]} />
+            <meshStandardMaterial
+              map={floorTexture.map}
+              normalMap={floorTexture.normalMap}
+              aoMap={floorTexture.aoMap}
+              roughnessMap={floorTexture.roughnessMap}
+            />
+          </mesh>
         </RigidBody>
       </group>
     </group>

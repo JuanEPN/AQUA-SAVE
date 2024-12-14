@@ -8,7 +8,6 @@ const Trashcan = ({ onBottleInside, ...props }) => {
   const trashcanRef = useRef();
   const { incrementLevels } = useQuizStore(); 
 
-
   
   const handleCollisionEnter = (event) => {
     const objectName = event.other.colliderObject.name;
@@ -35,7 +34,7 @@ const Trashcan = ({ onBottleInside, ...props }) => {
 
   return (
     <group {...props} dispose={null}>
-      <group rotation={[-Math.PI / 2, 0, 0]} scale={1} ref={trashcanRef} position={[15, 0, 0]}>
+      <group rotation={[-Math.PI / 2, 0, 0]} scale={1} ref={trashcanRef} position={[17, -3, 0]}>
         <RigidBody 
         name= "trashcan" 
         colliders="trimesh"

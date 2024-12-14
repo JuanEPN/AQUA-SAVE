@@ -1,5 +1,5 @@
 
-import React, { useRef, useEffect } from 'react'
+import React, { useEffect } from 'react'
 import { useGLTF } from '@react-three/drei'
 import { useThree } from '@react-three/fiber';
 
@@ -13,7 +13,6 @@ const Treatmentplant = (props) => {
     camera.lookAt(0, 0, 0);
   }, [camera]); 
 
-  
   return (
     <group {...props} dispose={null}>
       <group position={[3.3, 0.3, -3.8]} rotation={[0, -Math.PI / 2, 0]}>

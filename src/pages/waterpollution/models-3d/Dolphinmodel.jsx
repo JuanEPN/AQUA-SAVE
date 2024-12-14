@@ -2,7 +2,6 @@ import React, { useRef, useEffect } from 'react'
 import { useGLTF, useAnimations } from '@react-three/drei'
 import { useThree } from '@react-three/fiber'
 
-
 const Dolphinmodel = (props) => {
   const group = useRef()
   const { nodes, materials, animations } = useGLTF("/models-3d/dolphin.glb")

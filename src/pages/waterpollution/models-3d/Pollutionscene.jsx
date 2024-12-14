@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from 'react'
+import React, { useEffect } from 'react'
 import { useGLTF } from '@react-three/drei'
 import { useThree } from '@react-three/fiber';
 

@@ -1,21 +1,20 @@
-import { useGLTF, useAnimations} from "@react-three/drei";
+import { useGLTF, useAnimations } from "@react-three/drei";
 import { useEffect, useRef } from "react";
-
 
 const HermitCrab = (props) => {
   const crabRef = useRef();
-  const { nodes, materials, animations } = useGLTF("models-3d/microplastic/hermit_crab.glb");
+  const { nodes, materials, animations } = useGLTF(
+    "models-3d/microplastic/hermit_crab.glb"
+  );
   const { actions } = useAnimations(animations, crabRef);
-  
-  console.log(actions);
 
   useEffect(() => {
     actions["Animation"]?.play();
     return () => actions["Animation"]?.stop();
-  },[actions]);
-   
+  }, [actions]);
+
   return (
-    <group ref={crabRef} {...props} dispose={null} >
+    <group ref={crabRef} {...props} dispose={null}>
       <group name="Sketchfab_Scene">
         <group name="Sketchfab_model" rotation={[-Math.PI / 2, 0, 0]}>
           <group name="root">
