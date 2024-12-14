@@ -55,7 +55,6 @@ const Quiz = () => {
           <>
             ¡Excelente! La bolsa ha sido tirada a la basura. ¡Perfecto! <br />
             Las bolsas plásticas que tiramos al mar pueden ser confundidas con medusas por las tortugas marinas. ¡Evitemos que se las traguen! <br/>
-            .
           </>
         );
         break;
@@ -110,14 +109,14 @@ const Quiz = () => {
     }
 
     setMessage(message); // Establece el mensaje para mostrar
-    setTimeout(() => setMessage(""), 8000); // Eliminar el mensaje después de 3 segundos
+    setTimeout(() => setMessage(""), 10000); // Eliminar el mensaje después de 3 segundos
   };
 
   // Posiciones para las botellas
   const bottlePositions = [
-    [-5, 3, 0], // Primera botella
-    [-3, 3, 0], // Segunda botella
-    [-1, 3, 0], // Tercera botella
+    [-5, 2, 0], // Primera botella
+    [-3, 2, 0], // Segunda botella
+    [-1, 2, 0], // Tercera botella
   ];
 
   // Mostramos un alert con los controles al cargar la escena
@@ -150,12 +149,12 @@ const Quiz = () => {
           <Oceanquiz />
           <LightsOcean />
           <Carafe position={[1, -1, -8]} />
-          <Shoe position={[-12, 0, 6]} />
+          <Shoe position={[-10, 0.2, 7]} />
           <Bottle2 position={[-10, 0, -8]} />
-          <ClothBag position={[6, 1, 0]} />
+          <ClothBag position={[6, 0, 0]} />
           <Bagquiz position={[0, 0, 5]} />
-          <Hook position={[-6, -0.5, 6]} />
-          <PlasticBag position={[-10, 1, 2]} />
+          <Hook position={[-6, 0.6, 7]} />
+          <PlasticBag position={[-9, 0, 2]} />
           {bottlePositions.map((position, index) => (
             <Bottlequiz
               key={index}
