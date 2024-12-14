@@ -5,9 +5,9 @@ import * as THREE from "three";
 import { useFrame } from "@react-three/fiber";
 import useQuizStore from "../../../stores/use-quiz-store";
 
-const ClothBag = (props) => {
-  const ClothBagRef = useRef();
-  const { nodes, materials } = useGLTF("/models-3d/clothBag.glb");
+const Bottle2 = (props) => {
+  const bottle2Ref = useRef();
+  const { nodes, materials } = useGLTF("/models-3d/bottle2.glb");
   const [isDragging, setIsDragging] = useState(false);
   const [mousePosition, setMousePosition] = useState(new THREE.Vector3());
   const { isResetting, endReset } = useQuizStore();
@@ -37,9 +37,9 @@ const ClothBag = (props) => {
 
   // Restaurar la posicion inicial
   useEffect(() => {
-    if (isResetting && ClothBagRef.current && props.position) {
+    if (isResetting && bottle2Ref.current && props.position) {
       // Solo restaura las posiciones si el reseteo está activo
-      ClothBagRef.current.setTranslation(
+      bottle2Ref.current.setTranslation(
         new THREE.Vector3(...props.position),
         true
       );
@@ -50,7 +50,7 @@ const ClothBag = (props) => {
   }, [isResetting]); // Se escucha únicamente el estado de reseteo
 
   useFrame(({ camera, mouse }) => {
-    if (isDragging && ClothBagRef.current) {
+    if (isDragging && bottle2Ref.current) {
       // Convertir la posición del mouse al espacio 3D
       const vector = new THREE.Vector3(mouse.x, mouse.y, 0.5);
       vector.unproject(camera);
@@ -59,7 +59,7 @@ const ClothBag = (props) => {
       const pos = camera.position.clone().add(dir.multiplyScalar(distance));
 
       // Actualizar la posición de la bolsa
-      ClothBagRef.current.setNextKinematicTranslation(pos);
+      bottle2Ref.current.setNextKinematicTranslation(pos);
     }
   });
 
@@ -70,26 +70,31 @@ const ClothBag = (props) => {
   }, []);
 
   return (
-    <group {...props} dispose={null}>
-      <RigidBody
-        name="clothbag"
-        ref={ClothBagRef}
-        type={isDragging ? "kinematicPosition" : "dynamic"} // Cambia según el estado de arrastre
-        rotation={[-Math.PI / 1, 9, 3]}
-        onPointerDown={handlePointerDown} // Detectar clic para iniciar arrastre
-        onPointerMove={handlePointerMove}
-      >
-        <mesh
-          castShadow
-          receiveShadow
-          geometry={nodes.Object_2.geometry}
-          material={materials.material}
-          scale={3}
-        />
-      </RigidBody>
-    </group>
+    <>
+      <group {...props} dispose={null}>
+        <group name="Scene">
+          <RigidBody
+            name="bottle2"
+            ref={bottle2Ref}
+            type={isDragging ? "kinematicPosition" : "dynamic"} // Cambia según el estado de arrastre
+            rotation={[-Math.PI / 1, 9, 3]}
+            onPointerDown={handlePointerDown} // Detectar clic para iniciar arrastre
+            onPointerMove={handlePointerMove}
+          >
+            <mesh
+              name="Bottle2"
+              castShadow
+              receiveShadow
+              geometry={nodes.Bottle2.geometry}
+              material={materials.Material__0}
+              scale={0.1}
+            />
+          </RigidBody>
+        </group>
+      </group>
+    </>
   );
 };
 
-export default ClothBag;
-useGLTF.preload("/models-3d/clothBag.glb");
+export default Bottle2;
+useGLTF.preload("/models-3d/bottle2.glb");

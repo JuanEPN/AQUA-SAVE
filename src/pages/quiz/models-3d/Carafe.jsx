@@ -5,9 +5,9 @@ import * as THREE from "three";
 import { useFrame } from "@react-three/fiber";
 import useQuizStore from "../../../stores/use-quiz-store";
 
-const ClothBag = (props) => {
-  const ClothBagRef = useRef();
-  const { nodes, materials } = useGLTF("/models-3d/clothBag.glb");
+const Carafe = (props) => {
+  const carafeRef = useRef();
+  const { nodes, materials } = useGLTF("/models-3d/carafe.glb");
   const [isDragging, setIsDragging] = useState(false);
   const [mousePosition, setMousePosition] = useState(new THREE.Vector3());
   const { isResetting, endReset } = useQuizStore();
@@ -37,9 +37,9 @@ const ClothBag = (props) => {
 
   // Restaurar la posicion inicial
   useEffect(() => {
-    if (isResetting && ClothBagRef.current && props.position) {
+    if (isResetting && carafeRef.current && props.position) {
       // Solo restaura las posiciones si el reseteo está activo
-      ClothBagRef.current.setTranslation(
+      carafeRef.current.setTranslation(
         new THREE.Vector3(...props.position),
         true
       );
@@ -50,7 +50,7 @@ const ClothBag = (props) => {
   }, [isResetting]); // Se escucha únicamente el estado de reseteo
 
   useFrame(({ camera, mouse }) => {
-    if (isDragging && ClothBagRef.current) {
+    if (isDragging && carafeRef.current) {
       // Convertir la posición del mouse al espacio 3D
       const vector = new THREE.Vector3(mouse.x, mouse.y, 0.5);
       vector.unproject(camera);
@@ -59,7 +59,7 @@ const ClothBag = (props) => {
       const pos = camera.position.clone().add(dir.multiplyScalar(distance));
 
       // Actualizar la posición de la bolsa
-      ClothBagRef.current.setNextKinematicTranslation(pos);
+      carafeRef.current.setNextKinematicTranslation(pos);
     }
   });
 
@@ -70,26 +70,51 @@ const ClothBag = (props) => {
   }, []);
 
   return (
-    <group {...props} dispose={null}>
-      <RigidBody
-        name="clothbag"
-        ref={ClothBagRef}
+    <>
+      <group {...props} dispose={null} scale={0.1}>
+        <RigidBody
+        name="carafe"
+        ref={carafeRef}
         type={isDragging ? "kinematicPosition" : "dynamic"} // Cambia según el estado de arrastre
         rotation={[-Math.PI / 1, 9, 3]}
         onPointerDown={handlePointerDown} // Detectar clic para iniciar arrastre
         onPointerMove={handlePointerMove}
-      >
-        <mesh
-          castShadow
-          receiveShadow
-          geometry={nodes.Object_2.geometry}
-          material={materials.material}
-          scale={3}
-        />
-      </RigidBody>
-    </group>
+        >
+          <mesh
+            name="carafe"
+            castShadow
+            receiveShadow
+            geometry={nodes["tampa;cap"].geometry}
+            material={materials["Material.005"]}
+            position={[0.003, 23.901, -0.014]}
+            scale={0.897}
+          />
+          <mesh
+            name="carafe"
+            castShadow
+            receiveShadow
+            geometry={nodes.Cylinder.geometry}
+            material={materials["Material.002"]}
+          />
+          <mesh
+            name="carafe"
+            castShadow
+            receiveShadow
+            geometry={nodes.Cylinder_1.geometry}
+            material={materials["Material.003"]}
+          />
+          <mesh
+            name="carafe"
+            castShadow
+            receiveShadow
+            geometry={nodes.Cylinder_2.geometry}
+            material={materials["Material.004"]}
+          />
+        </RigidBody>
+      </group>
+    </>
   );
 };
 
-export default ClothBag;
-useGLTF.preload("/models-3d/clothBag.glb");
+export default Carafe;
+useGLTF.preload("/models-3d/carafe.glb");

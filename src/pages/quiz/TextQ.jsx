@@ -23,8 +23,8 @@ const Textq = () => {
         occlude
         distanceFactor={6}
         transform
-        position={[18, 7.6, -10]}
-        rotation={[Math.PI / 20, 6, 0]}
+        position={[13, 2, 12]}
+        rotation={[Math.PI / 50, 6, 0]}
         style={{
           fontFamily: "Georgia, serif",
           color: "black",
@@ -37,7 +37,7 @@ const Textq = () => {
         </h1>
       </Html>
       <Text3D
-        position={[-15, 12, -5]}
+        position={[-18, 10, -8]}
         font={"/fonts/Blue Ocean_Regular.json"}
         bevelEnabled
         bevelSize={0.02}
@@ -45,19 +45,19 @@ const Textq = () => {
         height={0.5}
         lineHeight={0.5}
         letterSpacing={0.05}
-        size={0.9}
+        size={1.5}
       >
         Recojamos la basura del agua!
         <meshStandardMaterial color="#1681e6" />
       </Text3D>
 
-      <Html transform position={[-15, 10, 0]}>
+      <Html transform position={[-15, 7, 4]}>
         <button className="ButtonA" onClick={handleCLick}>
           Volver a la página anterior
         </button>
       </Html>
 
-      <Html transform position={[-20, 10, 0]}>
+      <Html transform position={[-22, 7, 4]}>
         <button className="ButtonA" onClick={handleReset}>
           Reiniciar puzzle
         </button>

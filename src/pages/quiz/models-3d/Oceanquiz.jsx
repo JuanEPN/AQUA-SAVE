@@ -7,7 +7,7 @@ const Oceanquiz = (props) => {
   return (
     <RigidBody type="fixed" colliders="cuboid">
       <group {...props} dispose={null}>
-        <group scale={0.5} position={[-10, 0, 0]}>
+        <group scale={0.5} position={[-10, -3, 0]}>
           <mesh
             castShadow
             receiveShadow
