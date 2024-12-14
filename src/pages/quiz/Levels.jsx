@@ -15,9 +15,9 @@ const Levels = () => {
 
   // Mostrar el popup cuando se llegue a 5 estrellas
   useEffect(() => {
-    if (levels === 5) {
+    if (levels === 5 || levels === 10) {
       setShowPopup(true); // Mostrar el popup
-      setGoldCoins((prevCoins) => prevCoins + 1); // Aumentar las monedas de oro
+      setGoldCoins((prevCoins) => prevCoins + 50); // Aumentar las monedas de oro
     }
   }, [levels]); // Se activa cada vez que levels cambia
 
