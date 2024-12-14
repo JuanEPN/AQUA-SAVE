@@ -1,0 +1,38 @@
+.gold-coin-container {
+     display: flex;
+     align-items: center;
+     font-family: 'Arial', sans-serif;
+     font-size: 22px; /* Aumenta el tamaño de la fuente para hacerlo más prominente */
+     position: fixed; /* Fija la posición */
+     top: 10px; /* Alineado en la parte superior */
+     right: 10px; /* Alineado a la derecha */
+     z-index: 1000; /* Para asegurarse de que siempre esté visible sobre otros elementos */
+     padding: 10px;
+   }
+   
+   .coin-icon {
+     width: 40px; /* Aumenta el tamaño de la moneda */
+     height: 40px; /* Aumenta el tamaño de la moneda */
+     background-color: #FFD700; /* Color dorado */
+     border-radius: 50%; /* Forma circular */
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     box-shadow: 0 8px 12px rgba(0, 0, 0, 0.3); /* Sombra más pronunciada para un efecto 3D */
+     margin-right: 12px;
+     font-size: 28px; /* Aumenta el tamaño del icono de la moneda */
+     transition: transform 0.2s ease-in-out, box-shadow 0.3s ease; /* Efecto de animación */
+     border: 5px solid #FFB800; /* Añadir un borde dorado más claro alrededor */
+   }
+   
+   .coin-icon:hover {
+     transform: scale(1.1); /* Agranda la moneda cuando el mouse pasa sobre ella */
+     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5); /* Sombra más fuerte cuando se pasa el mouse */
+   }
+   
+   .coin-count {
+     font-weight: bold;
+     color: #333; /* Color oscuro para buen contraste */
+     text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.8); /* Sombra para el texto */
+   }
+   
