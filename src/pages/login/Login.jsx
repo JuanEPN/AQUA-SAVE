@@ -20,24 +20,6 @@ const Login = () => {
     observeAuthState();
   }, [observeAuthState]);
 
-  useEffect(() => {
-    if (user) {
-      const newUser = {
-        email: user.email,
-        name: user.displayName,
-        photo: user.photoURL,
-      };
-      UserDAO.createUser(newUser).then((response) => {
-        if (response.success) {
-          navigate("/Welcome");
-        } else {
-          console.error("Error al crear el usuario:", response.error);
-        }
-      });
-    }
-  }, [user, navigate]);
-
-
   const handleLogin = useCallback(() => {
     loginGoogleWithPopUp();
   }, [loginGoogleWithPopUp]);

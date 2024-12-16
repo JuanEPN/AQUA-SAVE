@@ -20,6 +20,7 @@
      align-items: center;
      box-shadow: 0 8px 12px rgba(0, 0, 0, 0.3); /* Sombra más pronunciada para un efecto 3D */
      margin-right: 12px;
+     margin-top: 30px;
      font-size: 28px; /* Aumenta el tamaño del icono de la moneda */
      transition: transform 0.2s ease-in-out, box-shadow 0.3s ease; /* Efecto de animación */
      border: 5px solid #FFB800; /* Añadir un borde dorado más claro alrededor */
@@ -32,6 +33,7 @@
    
    .coin-count {
      font-weight: bold;
+     margin-top: 30px;
      color: #333; /* Color oscuro para buen contraste */
      text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.8); /* Sombra para el texto */
    }

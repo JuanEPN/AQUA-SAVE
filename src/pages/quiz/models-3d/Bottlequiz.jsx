@@ -75,11 +75,10 @@ const Bottlequiz = (props) => {
         name={props.name}
         ref={bottleRef}
         type={isDragging ? "kinematicPosition" : "dynamic"} // Cambia según el estado de arrastre
-        rotation={[-Math.PI / 2, 0, 0]}
+        rotation={[-Math.PI / 2, 1, 0]}
         scale={[0.1, 0.1, 0.1]}
         onPointerDown={handlePointerDown} // Detectar clic para iniciar arrastre
-        onPointerMove={handlePointerMove}
-           
+        onPointerMove={handlePointerMove}         
       >
         <mesh
           castShadow

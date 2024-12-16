@@ -11,15 +11,34 @@ const Levels = () => {
   const [showPopup, setShowPopup] = useState(false);
 
   // Estado para las monedas de oro
-  const [goldCoins, setGoldCoins] = useState(0);
+  const [goldCoins, setGoldCoins] = useState(() => {
+    const storedCoins = localStorage.getItem("goldCoin");
+    return storedCoins !== null && !isNaN(parseInt(storedCoins)) ? parseInt(storedCoins) : 0;
+  });
 
-  // Mostrar el popup cuando se llegue a 5 estrellas
+  // Mostrar el popup cuando se llegue a ciertos niveles
   useEffect(() => {
-    if (levels === 5 || levels === 10) {
-      setShowPopup(true); // Mostrar el popup
-      setGoldCoins((prevCoins) => prevCoins + 50); // Aumentar las monedas de oro
+    const popupKey = `popupShown_level_${levels}`; // Genera una clave única por nivel
+
+    if ((levels === 2 || levels === 4 || levels === 6 || levels === 8 || levels === 10) && !localStorage.getItem(popupKey)) {
+      setGoldCoins((prevCoins) => prevCoins + 10); // Actualiza las monedas
+      setShowPopup(true); // Muestra el popup
+      localStorage.setItem(popupKey, "true"); // Guarda en localStorage que ya se mostró el popup para este nivel
     }
-  }, [levels]); // Se activa cada vez que levels cambia
+    if (levels === 0) {
+      // Limpiar los popups de los niveles previos en localStorage
+      for (let i = 1; i <= 10; i++) {
+        const key = `popupShown_level_${i}`;
+        localStorage.removeItem(key); // Borra la clave del popup correspondiente
+      }
+    }
+  }, [levels]);
+
+  // Sincroniza el estado de goldCoins con localStorage
+  useEffect(() => {
+    localStorage.setItem("goldCoin", goldCoins); // Guarda el nuevo valor en localStorage
+    console.log("Monedas guardadas en localStorage:", goldCoins);
+  }, [goldCoins]);
 
   // Función para cerrar el popup
   const closePopup = () => {
@@ -37,6 +56,7 @@ const Levels = () => {
           <React.Fragment key={star}>
             <input
               checked={
+                levels === 0 ? star <= 0 :
                 levels === 1 ? star <= 10 :
                 levels === 2 ? star <= 9 :
                 levels === 3 ? star <= 8 :
@@ -67,12 +87,12 @@ const Levels = () => {
         ))}
       </div>
 
-      {/* Popup cuando se lleguen a 5 estrellas */}
+      {/* Popup cuando se lleguen a niveles especiales */}
       {showPopup && (
         <div className="popup">
           <div className="popup-content">
             <h2>¡Felicidades!</h2>
-            <p>Has alcanzado las 5 estrellas. <br/>¡Bien hecho!</p>
+            <p>Has alcanzado un nivel {levels}. <br />¡Bien hecho!</p>
             <button onClick={closePopup}>Cerrar</button>
           </div>
         </div>
