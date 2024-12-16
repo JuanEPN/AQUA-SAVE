@@ -1,11 +1,13 @@
 import "./Welcome.css";
-import { useCallback } from "react";
+import { useCallback, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import useAuthStore from "../../stores/use-auth-store";
 import { OrbitControls } from "@react-three/drei";
 import { Canvas } from "@react-three/fiber";
 import TreeWelcome from "./models-3d/TreeWelcome";
 import Lights from "../../lights/LightsLogin";
+import UserDAO from "../../daos/UserDAO";
+import { getDocs, query, where } from "firebase/firestore";
 
 
 
@@ -22,13 +24,25 @@ const Welcome = () => {
     navigate("/Sitemap"); 
   }, [navigate]);
 
+  useEffect( ()  => {
+    const emailValidation = async () => {
+      const queryEmail = query(UserDAO.collectionRef, where("email", "==", user.email));
+      const email =  await getDocs(queryEmail);
+    
+    if (user && email.empty) {
+      
+      const newUser = {
+        email: user.email,
+        name: user.displayName,
+        photo: user.photoURL,
+        goldCoin:0,
+      };
+      UserDAO.createUser(newUser);
+    }
 
-
-  
-  if (!user) {
-    navigate("/Welcome")
-    return <p>Por favor, inicie sesión.</p>; 
   }
+  emailValidation()
+  }, [user]); 
 
   return (
     <div className="welcome-container">

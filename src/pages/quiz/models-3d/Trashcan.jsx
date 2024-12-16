@@ -2,6 +2,7 @@ import React, { useRef } from "react";
 import { useGLTF } from "@react-three/drei";
 import { RigidBody } from "@react-three/rapier";
 import useQuizStore from "../../../stores/use-quiz-store";
+import Levels from "../Levels";
 
 const Trashcan = ({ onBottleInside, ...props }) => {
   const { nodes, materials } = useGLTF("/models-3d/trash_can.glb");
@@ -23,6 +24,7 @@ const Trashcan = ({ onBottleInside, ...props }) => {
       // Incrementamos el nivel
       useQuizStore.getState().incrementLevels();
       console.log("Nivel incrementado");
+      console.log(Levels);
   
       // Añadimos el objeto al Set de colisiones para evitar futuras colisiones
       useQuizStore.getState().addCollidedObject(objectName);
