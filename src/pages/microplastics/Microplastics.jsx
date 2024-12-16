@@ -71,7 +71,6 @@ const Microplastics = () => {
         </group>
         <RainDrop />
       </Canvas>
-      <A11yAnnouncer/>
     </>
   );
 }
