@@ -17,8 +17,19 @@ import ClothBag from "./models-3d/ClothBag";
 import Bottle2 from "./models-3d/Bottle2";
 import Shoe from "./models-3d/Shoe";
 import Carafe from "./models-3d/Carafe";
+import useAuthStore from "../../stores/use-auth-store";
+import UserDAO from "../../daos/UserDAO";
+import useQuizStore from "../../stores/use-quiz-store";
 
-const Quiz = () => {
+const Quiz =  () => {
+
+  const resetQuiz = useQuizStore((state) => state.resetQuiz);
+  
+  useEffect(() => {
+    // Llamamos a resetQuiz cuando el componente se monta
+    resetQuiz();
+  }, [resetQuiz]); // La dependencia es 'resetQuiz' para que se ejecute solo una vez
+
   const [message, setMessage] = useState(""); // Estado para el mensaje
 
   const handleBottleInside = (objectName) => {
@@ -114,9 +125,9 @@ const Quiz = () => {
 
   // Posiciones para las botellas
   const bottlePositions = [
-    [-5, 2, 0], // Primera botella
-    [-3, 2, 0], // Segunda botella
-    [-1, 2, 0], // Tercera botella
+    [-4, 2, 3], // Primera botella
+    [-8, 2, 0], // Segunda botella
+    [-2, 2, 0], // Tercera botella
   ];
 
   // Mostramos un alert con los controles al cargar la escena
@@ -126,7 +137,8 @@ const Quiz = () => {
         "- Doble click derecho en las basuras: Toma el modelo.\n" +
         "- Arrastrar el mouse: Mueve el modelo.\n" +
         "- Tecla espacio: suelta el modelo.\n" +
-        "- Mueve la escena con click derecho.\n"
+        "- Mueve la escena con click derecho.\n" +
+        "- Acumulas monedas cada par de niveles superados.\n" 
     );
   }, []);
 
@@ -148,14 +160,14 @@ const Quiz = () => {
           <Textq />
           <Oceanquiz />
           <LightsOcean />
-          <Carafe position={[1, -1, -8]} />
+         <Carafe position={[1, -1, -8]} />
           <Shoe position={[-10, 0.2, 7]} />
           <Bottle2 position={[-10, 0, -8]} />
           <ClothBag position={[6, 0, 0]} />
           <Bagquiz position={[0, 0, 5]} />
           <Hook position={[-6, 0.6, 7]} />
           <PlasticBag position={[-9, 0, 2]} />
-          {bottlePositions.map((position, index) => (
+          {bottlePositions.map((position,  index) => (
             <Bottlequiz
               key={index}
               position={position}

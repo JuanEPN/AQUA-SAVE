@@ -11,9 +11,10 @@ const useQuizStore = create((set) => ({
   }),
 
   resetQuiz: () =>
-    set(() => ({
-      levels: 0,
+    set(() => ({      
+      levels: 0,    
       collidedObjects: new Set(),
+      showPopup: false, 
       isResetting: true, // Activa el reseteo
     })),
   endReset: () => set(() => ({ isResetting: false })), // Desactiva el reseteo

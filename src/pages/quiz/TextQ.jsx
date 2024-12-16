@@ -11,7 +11,6 @@ const Textq = () => {
     navigate("/Sitemap");
   };
 
-
   const handleReset = () =>{
     resetQuiz(); 
   };

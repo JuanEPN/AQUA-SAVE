@@ -25,4 +25,3 @@ const GoldCoin = ({ goldCoins }) => {
 };
 
 export default GoldCoin;
-
